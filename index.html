@@ -1459,25 +1459,43 @@ function artCoils(ink,accent){ // curly definition: spiral coils
   return s;
 }
 const ART={pine:"#14382A",shea:"#F6F0E4",amber:"#D9A44A",cocoa:"#5C4632",deep:"#0D261C",sage:"#DCE7DA",sand:"#F0E3C8"};
+/* Real, free-licensed photos from Wikimedia Commons. Each pin links to its source/license page,
+   and keeps an original SVG illustration as a fallback if the photo can't load. */
+const cmImg=f=>"https://commons.wikimedia.org/wiki/Special:FilePath/"+encodeURIComponent(f)+"?width=640";
+const cmPage=f=>"https://commons.wikimedia.org/wiki/File:"+encodeURIComponent(f.replace(/ /g,"_"));
 const DEFAULT_PINS=[
-  {id:"demo1",isDemo:true,style:"Taper fade / lineup",shopId:"barbersden",shopName:"The Barbers Den",
-   title:"Illustration — the clean taper gradient",img:svgWrap(400,500,ART.deep,artFadeDots(ART.deep,ART.amber)),createdAt:8},
-  {id:"demo2",isDemo:true,style:"High top fade",shopId:"vault",shopName:"The Vault Barbershop",
-   title:"Illustration — height up top, faded sides",img:svgWrap(400,480,ART.shea,artBlockTop(ART.pine,ART.cocoa)),createdAt:7},
-  {id:"demo3",isDemo:true,style:"Box braids",shopId:"dee",shopName:"Dee African Hair Braiding",
-   title:"Illustration — structured box plaits",img:svgWrap(400,470,ART.sand,artPlaits(ART.pine,ART.cocoa,6,false)),createdAt:6},
-  {id:"demo4",isDemo:true,style:"Knotless braids",shopId:"christinas",shopName:"Christina's African Hair Braiding",
-   title:"Illustration — fine knotless with curled ends",img:svgWrap(400,540,ART.shea,artPlaits(ART.cocoa,ART.amber,7,true)),createdAt:5},
-  {id:"demo5",isDemo:true,style:"Cornrows / stitch braids",shopId:"texturehaus",shopName:"The Texture Haus",
-   title:"Illustration — swept-back stitch rows",img:svgWrap(400,420,ART.sage,artCornrows(ART.pine,ART.cocoa)),createdAt:4},
-  {id:"demo6",isDemo:true,style:"Two-strand twists",shopId:"eezytouch",shopName:"Eezytouch African Hair Braiding",
-   title:"Illustration — the two-strand pattern",img:svgWrap(400,490,ART.shea,artTwists(ART.pine,ART.amber)),createdAt:3},
-  {id:"demo7",isDemo:true,style:"Starter locs",shopId:"hobl",shopName:"House of Beautiful Locs",
-   title:"Illustration — loc strands and segments",img:svgWrap(400,510,ART.sand,artLocs(ART.cocoa,ART.pine)),createdAt:2},
-  {id:"demo8",isDemo:true,style:"Silk press",shopId:"silkystrands",shopName:"Silky Strands Salon & Spa",
-   title:"Illustration — the silk press swing",img:svgWrap(400,490,ART.deep,artSilk(ART.shea,ART.amber)),createdAt:1},
-  {id:"demo9",isDemo:true,style:"Curly cut / natural styling",shopId:"noiretblanc",shopName:"Noir et Blanc Salon",
-   title:"Illustration — defined coils",img:svgWrap(400,470,ART.sage,artCoils(ART.pine,ART.cocoa)),createdAt:0}
+  {id:"demo1",isDemo:true,style:"Box braids",cat:"braids",shopId:"dee",shopName:"Dee African Hair Braiding",
+   title:"Long box braids, classic parts",
+   img:cmImg("Box Braids.jpg"),credit:cmPage("Box Braids.jpg"),
+   fb:svgWrap(400,470,ART.sand,artPlaits(ART.pine,ART.cocoa,6,false)),createdAt:8},
+  {id:"demo2",isDemo:true,style:"Cornrows / stitch braids",cat:"braids",shopId:"texturehaus",shopName:"The Texture Haus",
+   title:"Feed-in Ghana braids, clean stitch work",
+   img:cmImg("Ghana Braids. .. Crystal's Braiding & Beyond.jpg"),credit:cmPage("Ghana Braids. .. Crystal's Braiding & Beyond.jpg"),
+   fb:svgWrap(400,420,ART.sage,artCornrows(ART.pine,ART.cocoa)),createdAt:7},
+  {id:"demo3",isDemo:true,style:"High top fade",cat:"cuts",shopId:"vault",shopName:"The Vault Barbershop",
+   title:"The high top — height and clean sides",
+   img:cmImg("High top fade.jpg"),credit:cmPage("High top fade.jpg"),
+   fb:svgWrap(400,480,ART.shea,artBlockTop(ART.pine,ART.cocoa)),createdAt:6},
+  {id:"demo4",isDemo:true,style:"High top fade",cat:"cuts",shopId:"barbersden",shopName:"The Barbers Den",
+   title:"Sculpted high top, another angle",
+   img:cmImg("Hi Top hair style - 2013.jpg"),credit:cmPage("Hi Top hair style - 2013.jpg"),
+   fb:svgWrap(400,500,ART.deep,artFadeDots(ART.deep,ART.amber)),createdAt:5},
+  {id:"demo5",isDemo:true,style:"Starter locs",cat:"locs",shopId:"hobl",shopName:"House of Beautiful Locs",
+   title:"Mature locs — where the journey goes",
+   img:cmImg("Dreadlocks \u05e8\u05d0\u05e1\u05d8\u05d5\u05ea.jpg"),credit:cmPage("Dreadlocks \u05e8\u05d0\u05e1\u05d8\u05d5\u05ea.jpg"),
+   fb:svgWrap(400,510,ART.sand,artLocs(ART.cocoa,ART.pine)),createdAt:4},
+  {id:"demo6",isDemo:true,style:"Curly cut / natural styling",cat:"natural",shopId:"noiretblanc",shopName:"Noir et Blanc Salon",
+   title:"Type 4c natural, worn out and proud",
+   img:cmImg("Natural Afro - hair type 4c- model Gwyneth Ellis.jpg"),credit:cmPage("Natural Afro - hair type 4c- model Gwyneth Ellis.jpg"),
+   fb:svgWrap(400,470,ART.sage,artCoils(ART.pine,ART.cocoa)),createdAt:3},
+  {id:"demo7",isDemo:true,style:"Braid install \u2014 in the chair",cat:"braids",shopId:"christinas",shopName:"Christina's African Hair Braiding",
+   title:"What a few hours in the chair looks like",
+   img:cmImg("Braider at a hair salon.jpg"),credit:cmPage("Braider at a hair salon.jpg"),
+   fb:svgWrap(400,540,ART.shea,artPlaits(ART.cocoa,ART.amber,7,true)),createdAt:2},
+  {id:"demo8",isDemo:true,style:"Natural texture, styled",cat:"natural",shopId:"silkystrands",shopName:"Silky Strands Salon & Spa",
+   title:"Natural styles showcase",
+   img:cmImg("Peinados Afro.jpg"),credit:cmPage("Peinados Afro.jpg"),
+   fb:svgWrap(400,490,ART.deep,artSilk(ART.shea,ART.amber)),createdAt:1}
 ];
 
 async function listPins(){
