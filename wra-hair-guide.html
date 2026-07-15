@@ -1,0 +1,2135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Crown Guide — Black Hair Care at WRA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine:#14382A;
+    --pine-deep:#0D261C;
+    --shea:#F6F0E4;
+    --shea-soft:#EFE7D6;
+    --amber:#D9A44A;
+    --amber-deep:#B27F2C;
+    --cocoa:#5C4632;
+    --ink:#1C1A16;
+    --card:#FFFDF8;
+    --line:#DDD2BC;
+    --ok:#2E7D4F;
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Archivo',system-ui,sans-serif;
+    background:var(--shea);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.serif{font-family:'Fraunces',Georgia,serif}
+
+  /* ---------- Braided divider: signature motif ---------- */
+  .braid{
+    height:14px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14' viewBox='0 0 40 14'%3E%3Cpath d='M0 7 Q5 0 10 7 T20 7 T30 7 T40 7' fill='none' stroke='%23D9A44A' stroke-width='2.4'/%3E%3Cpath d='M0 7 Q5 14 10 7 T20 7 T30 7 T40 7' fill='none' stroke='%2314382A' stroke-width='2.4' opacity='0.55'/%3E%3C/svg%3E");
+    background-repeat:repeat-x;
+    background-size:40px 14px;
+    margin:0 auto;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    background:var(--pine);
+    color:var(--shea);
+    padding:44px 20px 34px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  header::after{
+    content:"";
+    position:absolute;inset:auto 0 0 0;height:6px;
+    background:repeating-linear-gradient(90deg,var(--amber) 0 22px,transparent 22px 30px);
+    opacity:.85;
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--amber);font-weight:600;margin-bottom:12px;
+  }
+  header h1{
+    font-size:clamp(2rem,5.5vw,3.2rem);
+    font-weight:600;line-height:1.08;
+    max-width:640px;margin:0 auto;
+  }
+  header h1 em{font-style:italic;color:var(--amber)}
+  header p.sub{
+    max-width:560px;margin:16px auto 0;
+    color:#CFE0D3;font-size:.98rem;
+  }
+
+  /* ---------- Nav tabs ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:var(--pine-deep);
+    display:flex;justify-content:center;gap:4px;
+    padding:10px 12px;
+    box-shadow:0 3px 14px rgba(13,38,28,.28);
+    flex-wrap:wrap;
+  }
+  .tab-btn{
+    font-family:'Archivo',sans-serif;
+    font-size:.9rem;font-weight:600;
+    color:#BFD3C4;background:transparent;border:1.5px solid transparent;
+    padding:9px 18px;border-radius:999px;cursor:pointer;
+    transition:all .18s ease;
+  }
+  .tab-btn:hover{color:var(--shea)}
+  .tab-btn:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+  .tab-btn.active{background:var(--amber);color:var(--pine-deep);border-color:var(--amber)}
+  .tab-btn.office{border-color:#3A5C4B;color:#8FB59D}
+  .tab-btn.office.active{background:var(--amber);color:var(--pine-deep)}
+
+  main{max-width:1020px;margin:0 auto;padding:36px 18px 90px}
+  .panel{display:none;animation:fadein .35s ease}
+  .panel.active{display:block}
+  @keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.panel{animation:none}*{transition:none!important}}
+
+  .panel-head{text-align:center;margin-bottom:26px}
+  .panel-head h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;color:var(--pine)}
+  .panel-head p{max-width:600px;margin:8px auto 14px;color:var(--cocoa);font-size:.95rem}
+  .panel-head .braid{width:130px}
+
+  /* ---------- Filters ---------- */
+  .filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+  .chip{
+    border:1.5px solid var(--pine);color:var(--pine);background:transparent;
+    font-family:'Archivo';font-weight:600;font-size:.82rem;
+    padding:7px 15px;border-radius:999px;cursor:pointer;transition:all .15s;
+  }
+  .chip:hover{background:rgba(20,56,42,.08)}
+  .chip:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+  .chip.on{background:var(--pine);color:var(--shea)}
+
+  /* ---------- Shop cards ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+  .shop{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px;display:flex;flex-direction:column;gap:10px;
+    box-shadow:0 1px 3px rgba(92,70,50,.06);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .shop:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(92,70,50,.13)}
+  .shop-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .shop h3{font-size:1.12rem;font-weight:600;color:var(--pine);line-height:1.2}
+  .dist{
+    flex-shrink:0;font-size:.72rem;font-weight:700;letter-spacing:.04em;
+    background:var(--shea-soft);border:1px solid var(--line);color:var(--cocoa);
+    padding:4px 9px;border-radius:6px;white-space:nowrap;
+  }
+  .rating{font-size:.83rem;color:var(--cocoa)}
+  .rating b{color:var(--amber-deep)}
+  .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{
+    font-size:.7rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
+    background:rgba(20,56,42,.08);color:var(--pine);
+    padding:3px 8px;border-radius:5px;
+  }
+  .shop p.blurb{font-size:.88rem;color:#453B2E}
+  .know{font-size:.8rem;color:var(--cocoa);background:var(--shea-soft);border-left:3px solid var(--amber);padding:8px 10px;border-radius:0 8px 8px 0}
+  .shop-links{display:flex;gap:14px;margin-top:auto;padding-top:6px}
+  .shop-links a{
+    font-size:.84rem;font-weight:600;color:var(--pine);text-decoration:none;
+    border-bottom:1.5px solid var(--amber);
+  }
+  .shop-links a:hover{color:var(--amber-deep)}
+
+  /* ---------- Style finder ---------- */
+  .finder{max-width:660px;margin:0 auto}
+  .q-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px;margin-bottom:16px;
+  }
+  .q-num{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber-deep)}
+  .q-card h3{font-size:1.15rem;color:var(--pine);margin:6px 0 14px}
+  .opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+  .opt{
+    border:1.5px solid var(--line);background:var(--shea-soft);border-radius:10px;
+    padding:12px;font-size:.87rem;font-weight:600;color:var(--ink);
+    cursor:pointer;text-align:center;transition:all .15s;font-family:'Archivo';
+  }
+  .opt:hover{border-color:var(--pine)}
+  .opt:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+  .opt.picked{background:var(--pine);color:var(--shea);border-color:var(--pine)}
+  .finder-actions{text-align:center;margin:20px 0;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+  .btn{
+    font-family:'Archivo';font-weight:700;font-size:.92rem;
+    background:var(--amber);color:var(--pine-deep);
+    border:none;border-radius:999px;padding:13px 30px;cursor:pointer;
+    transition:all .15s;
+  }
+  .btn:hover{background:var(--amber-deep);color:var(--shea)}
+  .btn:focus-visible{outline:2px solid var(--pine);outline-offset:2px}
+  .btn.ghost{background:transparent;border:1.5px solid var(--pine);color:var(--pine);font-weight:600}
+  .btn.ghost:hover{background:rgba(20,56,42,.08)}
+  .btn.small{padding:8px 18px;font-size:.82rem}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+
+  .result-card{
+    background:var(--card);border:1.5px solid var(--pine);border-radius:var(--radius);
+    padding:22px;margin-bottom:16px;
+  }
+  .result-card h3{color:var(--pine);font-size:1.25rem}
+  .result-meta{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+  .meta-pill{font-size:.76rem;font-weight:600;background:var(--shea-soft);border:1px solid var(--line);padding:4px 10px;border-radius:999px;color:var(--cocoa)}
+  .result-card p{font-size:.9rem;color:#453B2E;margin-bottom:10px}
+  .goto{font-size:.84rem;color:var(--pine)}
+  .goto a{color:var(--pine);font-weight:700;border-bottom:1.5px solid var(--amber);text-decoration:none;cursor:pointer}
+
+  /* ---------- Shared board pieces ---------- */
+  .notice{
+    max-width:640px;margin:0 auto 22px;font-size:.82rem;color:var(--cocoa);
+    background:var(--shea-soft);border:1px solid var(--line);border-radius:10px;
+    padding:12px 16px;text-align:center;
+  }
+  form.card-form{
+    max-width:560px;margin:0 auto;background:var(--card);
+    border:1px solid var(--line);border-radius:var(--radius);padding:26px;
+  }
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:.8rem;font-weight:700;letter-spacing:.03em;color:var(--pine);margin-bottom:6px}
+  .field input,.field select,.field textarea{
+    width:100%;font-family:'Archivo';font-size:.92rem;color:var(--ink);
+    background:var(--shea);border:1.5px solid var(--line);border-radius:9px;
+    padding:11px 12px;transition:border-color .15s;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--pine)}
+  .field textarea{resize:vertical;min-height:70px}
+  .hint{font-size:.74rem;color:var(--cocoa);margin-top:4px}
+  .form-actions{text-align:center;margin-top:6px}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:560px){.two-col{grid-template-columns:1fr}}
+  .toast{
+    display:none;max-width:560px;margin:14px auto 0;text-align:center;
+    background:#E4F0E7;border:1px solid var(--ok);color:var(--ok);
+    font-size:.86rem;font-weight:600;padding:11px;border-radius:10px;
+  }
+  .toast.err{background:#F7E9E4;border-color:#A6543B;color:#A6543B}
+
+  .req-list{display:flex;flex-direction:column;gap:12px;max-width:800px;margin:0 auto}
+  .req-item{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;
+  }
+  .req-main{flex:1 1 280px}
+  .req-main .who{font-weight:700;color:var(--pine)}
+  .req-main .what{font-size:.9rem;color:#453B2E}
+  .req-main .when{font-size:.78rem;color:var(--cocoa);margin-top:2px}
+  .status{
+    font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    padding:5px 11px;border-radius:999px;white-space:nowrap;
+  }
+  .status.requested{background:#F3E3C3;color:var(--amber-deep)}
+  .status.scheduled{background:#DCE9F5;color:#2C5B8A}
+  .status.done{background:#E4F0E7;color:var(--ok)}
+  .req-admin{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .req-admin select{
+    font-family:'Archivo';font-size:.8rem;padding:7px 9px;border-radius:8px;
+    border:1.5px solid var(--line);background:var(--shea);max-width:210px;
+  }
+  .mini{
+    font-size:.76rem;font-weight:700;background:transparent;color:#A6543B;
+    border:1.5px solid #D8B4A5;border-radius:8px;padding:6px 10px;cursor:pointer;
+  }
+  .mini:hover{background:#F7E9E4}
+  .mini.pine{color:var(--pine);border-color:var(--line)}
+  .mini.pine:hover{background:var(--shea-soft)}
+
+  .trip-card{
+    background:var(--card);border:1.5px solid #2C5B8A22;border-left:5px solid #2C5B8A;
+    border-radius:12px;padding:16px 18px;margin-bottom:12px;
+  }
+  .trip-card h4{font-family:'Archivo';font-size:.98rem;color:var(--pine)}
+  .trip-card .trip-meta{font-size:.8rem;color:var(--cocoa);margin:2px 0 8px}
+  .trip-card ul{list-style:none;font-size:.85rem;color:#453B2E}
+  .trip-card ul li::before{content:"— ";color:var(--amber-deep)}
+  .trip-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+
+  .plan-summary{
+    max-width:800px;margin:0 auto 24px;background:var(--pine);color:var(--shea);
+    border-radius:var(--radius);padding:22px;
+  }
+  .plan-summary h3{color:var(--amber);font-size:1.05rem;margin-bottom:10px}
+  .plan-row{display:flex;justify-content:space-between;font-size:.88rem;padding:7px 0;border-bottom:1px solid rgba(246,240,228,.15)}
+  .plan-row:last-child{border-bottom:none}
+  .plan-row b{color:var(--amber)}
+  .empty{
+    text-align:center;color:var(--cocoa);font-size:.92rem;padding:36px 20px;
+    background:var(--shea-soft);border:1.5px dashed var(--line);border-radius:var(--radius);
+    max-width:560px;margin:0 auto;
+  }
+
+  /* ---------- Admin ---------- */
+  .gate{max-width:420px;margin:0 auto}
+  .admin-bar{
+    max-width:800px;margin:0 auto 22px;display:flex;justify-content:space-between;align-items:center;
+    background:var(--pine-deep);color:var(--shea);border-radius:12px;padding:12px 18px;flex-wrap:wrap;gap:10px;
+  }
+  .admin-bar span{font-size:.85rem}
+  .admin-bar span b{color:var(--amber)}
+  .admin-nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 auto 26px;max-width:800px}
+  .section-h{
+    max-width:800px;margin:34px auto 14px;display:flex;align-items:center;gap:12px;
+  }
+  .section-h h3{color:var(--pine);font-size:1.2rem;white-space:nowrap}
+  .section-h::after{content:"";flex:1;height:1px;background:var(--line)}
+  .shop-admin-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+  .shop-row{
+    background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;
+  }
+  .shop-row .sr-main{font-size:.9rem}
+  .shop-row .sr-main b{color:var(--pine)}
+  .shop-row .sr-main small{color:var(--cocoa)}
+  details.adv{max-width:560px;margin:12px auto 0}
+  details.adv summary{cursor:pointer;font-size:.82rem;font-weight:600;color:var(--cocoa)}
+
+  footer{
+    background:var(--pine-deep);color:#9DB8A6;text-align:center;
+    padding:30px 20px;font-size:.8rem;
+  }
+  footer b{color:var(--shea)}
+  .refresh-row{text-align:center;margin-bottom:20px}
+
+  /* ---------- Maintain It ---------- */
+  .care-wrap{max-width:720px;margin:0 auto}
+  details.care{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    margin-bottom:12px;overflow:hidden;
+  }
+  details.care summary{
+    cursor:pointer;list-style:none;padding:18px 22px;
+    font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1.08rem;color:var(--pine);
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+  }
+  details.care summary::-webkit-details-marker{display:none}
+  details.care summary::after{content:"+";font-family:'Archivo';font-weight:700;color:var(--amber-deep);font-size:1.2rem}
+  details.care[open] summary::after{content:"–"}
+  details.care[open] summary{border-bottom:1px solid var(--line)}
+  .care-body{padding:16px 22px 20px;font-size:.9rem;color:#453B2E}
+  .care-body p{margin-bottom:10px}
+  .care-body p:last-child{margin-bottom:0}
+  .care-body b{color:var(--pine)}
+  .kit{
+    max-width:720px;margin:26px auto 0;background:var(--pine);color:var(--shea);
+    border-radius:var(--radius);padding:26px;
+  }
+  .kit h3{color:var(--amber);font-size:1.15rem;margin-bottom:6px}
+  .kit>p{font-size:.86rem;color:#CFE0D3;margin-bottom:14px}
+  .kit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:6px 22px}
+  .kit-grid div{font-size:.88rem;padding:5px 0;border-bottom:1px solid rgba(246,240,228,.12)}
+  .kit-grid div span{color:var(--amber)}
+  .price-line{font-size:.82rem;font-weight:600;color:var(--amber-deep)}
+
+  .email-box{margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
+  .email-box label{display:block;font-size:.74rem;font-weight:700;color:var(--pine);margin:8px 0 4px}
+  .email-box input,.email-box textarea{
+    width:100%;font-family:'Archivo';font-size:.82rem;color:var(--ink);
+    background:var(--shea);border:1.5px solid var(--line);border-radius:8px;padding:9px 10px;
+  }
+  .email-box textarea{min-height:180px;resize:vertical;line-height:1.5}
+
+  /* ---------- Shop detail page ---------- */
+  .shop{cursor:pointer}
+  .card-hint{font-size:.74rem;color:var(--amber-deep);font-weight:600;margin-top:2px}
+  .detail{max-width:760px;margin:0 auto}
+  .detail-hero{
+    background:var(--pine);color:var(--shea);border-radius:var(--radius);
+    padding:30px 28px;margin-bottom:18px;
+  }
+  .detail-hero .crumbs{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:8px}
+  .detail-hero h2{font-size:clamp(1.6rem,4vw,2.2rem);color:var(--shea);line-height:1.1}
+  .detail-hero .hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .hero-pill{font-size:.78rem;font-weight:600;background:rgba(246,240,228,.12);border:1px solid rgba(246,240,228,.25);padding:5px 12px;border-radius:999px}
+  .hero-pill.gold{background:var(--amber);color:var(--pine-deep);border-color:var(--amber)}
+  .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:640px){.detail-grid{grid-template-columns:1fr}}
+  .detail-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .detail-card h3{font-size:1rem;color:var(--pine);margin-bottom:10px}
+  .detail-card p,.detail-card li{font-size:.88rem;color:#453B2E}
+  .detail-card ul{list-style:none}
+  .detail-card ul li{padding:5px 0;border-bottom:1px solid var(--shea-soft)}
+  .detail-card ul li:last-child{border-bottom:none}
+  .detail-card.full{grid-column:1/-1}
+  .detail-actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+  .detail-actions a{text-decoration:none}
+  .style-mini{
+    display:flex;justify-content:space-between;gap:10px;align-items:baseline;
+    padding:8px 0;border-bottom:1px solid var(--shea-soft);font-size:.88rem;
+  }
+  .style-mini:last-child{border-bottom:none}
+  .style-mini b{color:var(--pine)}
+  .style-mini span{color:var(--cocoa);font-size:.78rem;white-space:nowrap}
+  .back-row{max-width:760px;margin:0 auto 16px}
+
+  /* ---------- Style Board (pins) ---------- */
+  .masonry{columns:4 220px;column-gap:14px;max-width:1020px;margin:0 auto}
+  .pin{
+    break-inside:avoid;margin:0 0 14px;background:var(--card);
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;
+    transition:transform .16s ease, box-shadow .16s ease;
+  }
+  .pin:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(92,70,50,.16)}
+  .pin img{width:100%;display:block;background:var(--shea-soft);min-height:80px}
+  .pin-cap{padding:10px 12px}
+  .pin-cap .p-style{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--amber-deep)}
+  .pin-cap .p-title{font-size:.85rem;font-weight:600;color:var(--pine);line-height:1.3}
+  .pin-cap .p-shop{font-size:.75rem;color:var(--cocoa);margin-top:2px}
+  .lightbox{
+    position:fixed;inset:0;z-index:200;background:rgba(13,38,28,.9);
+    display:flex;align-items:center;justify-content:center;padding:18px;
+  }
+  .lb-inner{
+    background:var(--card);border-radius:16px;max-width:920px;width:100%;
+    max-height:92vh;display:flex;flex-direction:column;overflow:hidden;
+  }
+  .lb-imgwrap{overflow:auto;background:#0D261C;flex:1;min-height:200px;text-align:center}
+  .lb-imgwrap img{max-width:100%;max-height:64vh;display:inline-block;cursor:zoom-in;transition:none}
+  .lb-imgwrap img.zoomed{max-width:none;max-height:none;width:180%;cursor:zoom-out}
+  .lb-info{padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+  .lb-info .lb-text .p-style{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--amber-deep)}
+  .lb-info h3{color:var(--pine);font-size:1.15rem}
+  .lb-info .lb-shopline{font-size:.85rem;color:var(--cocoa)}
+  .lb-actions{display:flex;gap:8px;flex-wrap:wrap}
+  .lb-close{
+    position:absolute;top:14px;right:16px;z-index:210;
+    background:var(--amber);color:var(--pine-deep);border:none;border-radius:999px;
+    width:38px;height:38px;font-size:1.1rem;font-weight:700;cursor:pointer;
+  }
+  .pin-form-wrap{max-width:560px;margin:0 auto 30px}
+  @media (prefers-reduced-motion:reduce){.pin{transition:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="eyebrow">Western Reserve Academy &middot; DEIB Office</span>
+  <h1>The Crown Guide<br><em>Black hair care, handled.</em></h1>
+  <p class="sub">Vetted barbershops and braiders near campus, a style finder to figure out what you want, and a trip board so the DEIB office can get you there.</p>
+</header>
+
+<nav aria-label="Sections">
+  <button class="tab-btn active" data-tab="shops">Find a Shop</button>
+  <button class="tab-btn" data-tab="finder">What Should I Get?</button>
+  <button class="tab-btn" data-tab="pins">Style Board</button>
+  <button class="tab-btn" data-tab="maintain">Maintain It</button>
+  <button class="tab-btn" data-tab="board">Trip Board</button>
+  <button class="tab-btn office" data-tab="admin">🔑 DEIB Office</button>
+</nav>
+
+<main>
+
+  <!-- ================= SHOPS ================= -->
+  <section id="shops" class="panel active">
+    <div class="panel-head">
+      <h2>Shops that know our hair</h2>
+      <p>Chosen for strong reviews from Black clients near Hudson, and kept current by the DEIB office. Distances are drive time from campus; prices are ballpark &mdash; confirm when you book. Call before a trip &mdash; braiders especially book out.</p>
+      <div class="braid"></div>
+    </div>
+    <div id="shopBrowse">
+    <div class="filters" id="shopFilters">
+      <button class="chip on" data-f="all">All</button>
+      <button class="chip" data-f="cuts">Cuts &amp; Fades</button>
+      <button class="chip" data-f="braids">Braids &amp; Twists</button>
+      <button class="chip" data-f="locs">Locs &amp; Natural</button>
+      <button class="chip" data-f="close">Closest to campus</button>
+    </div>
+    <div class="grid" id="shopGrid"></div>
+
+    <div class="panel-head" style="margin-top:50px">
+      <h2 style="font-size:1.3rem">Know a spot we're missing?</h2>
+      <p>Found a barber or braider you trust? Suggest them — the DEIB office reviews suggestions and can add them to the directory for everyone.</p>
+    </div>
+    <div class="card-form" id="suggForm">
+      <div class="two-col">
+        <div class="field"><label for="sgName">Shop or stylist name</label><input id="sgName" maxlength="60" placeholder="e.g., Faded by Marcus"></div>
+        <div class="field"><label for="sgArea">Town / area</label><input id="sgArea" maxlength="40" placeholder="e.g., Streetsboro"></div>
+      </div>
+      <div class="two-col">
+        <div class="field"><label for="sgDoes">What do they do?</label><input id="sgDoes" maxlength="80" placeholder="e.g., fades and designs / knotless braids"></div>
+        <div class="field"><label for="sgPhone">Phone or Instagram (if you know it)</label><input id="sgPhone" maxlength="60" placeholder="optional"></div>
+      </div>
+      <div class="field"><label for="sgWhy">Why should they be in the guide?</label><textarea id="sgWhy" maxlength="240" placeholder="e.g., did my braids over break, super gentle, $160 for knotless"></textarea></div>
+      <div class="field"><label for="sgBy">Your name (optional)</label><input id="sgBy" maxlength="40" placeholder="so the office can follow up"></div>
+      <div class="form-actions"><button class="btn" type="button" id="sgBtn">Send suggestion to the DEIB office</button></div>
+      <p class="hint" style="text-align:center;margin-top:10px">Suggestions go to the office dashboard — they're not shown publicly until approved.</p>
+    </div>
+    <div class="toast" id="suggToast"></div>
+    </div><!-- /shopBrowse -->
+
+    <div id="shopDetail" style="display:none"></div>
+  </section>
+
+  <!-- ================= FINDER ================= -->
+  <section id="finder" class="panel">
+    <div class="panel-head">
+      <h2>What should I get?</h2>
+      <p>Three quick questions. You&rsquo;ll get style suggestions with real time and price expectations, plus the best shop near campus for each one.</p>
+      <div class="braid"></div>
+    </div>
+    <div class="finder" id="finderQuiz">
+      <div class="q-card">
+        <span class="q-num">Question 1</span>
+        <h3>What are you going for?</h3>
+        <div class="opts" data-q="goal">
+          <button class="opt" data-v="cut">A fresh cut or lineup</button>
+          <button class="opt" data-v="protective">A protective style</button>
+          <button class="opt" data-v="locs">Locs (start or maintain)</button>
+          <button class="opt" data-v="straight">Straight or defined curls</button>
+        </div>
+      </div>
+      <div class="q-card">
+        <span class="q-num">Question 2</span>
+        <h3>How much time can you give in the chair?</h3>
+        <div class="opts" data-q="time">
+          <button class="opt" data-v="short">Under an hour</button>
+          <button class="opt" data-v="medium">1&ndash;3 hours</button>
+          <button class="opt" data-v="long">Half a day &mdash; worth it</button>
+        </div>
+      </div>
+      <div class="q-card">
+        <span class="q-num">Question 3</span>
+        <h3>How long should it hold you over?</h3>
+        <div class="opts" data-q="last">
+          <button class="opt" data-v="weeks">1&ndash;2 weeks</button>
+          <button class="opt" data-v="month">About a month</button>
+          <button class="opt" data-v="longer">6+ weeks (exam season proof)</button>
+        </div>
+      </div>
+      <div class="finder-actions">
+        <button class="btn" id="finderGo" disabled>Show my matches</button>
+      </div>
+    </div>
+    <div id="finderResults"></div>
+  </section>
+
+  <!-- ================= STYLE BOARD ================= -->
+  <section id="pins" class="panel">
+    <div class="panel-head">
+      <h2>Style board</h2>
+      <p>Real work from the shops in our guide, curated by the DEIB office. Tap any photo to inspect it up close and jump to the shop that did it.</p>
+      <div class="braid"></div>
+    </div>
+
+    <div class="pin-form-wrap" id="pinFormWrap" style="display:none">
+      <div class="card-form">
+        <p style="font-size:.85rem;color:var(--cocoa);margin-bottom:14px"><b style="color:var(--pine)">Office only — add a photo.</b> Save a photo of the shop's work (ask the shop first — a quick "can we feature this for our students?" message; they almost always say yes since it sends them customers), then upload it here.</p>
+        <div class="field">
+          <label for="pinFile">Photo</label>
+          <input id="pinFile" type="file" accept="image/*">
+          <p class="hint">Big photos are automatically resized to keep the board fast.</p>
+        </div>
+        <div class="field"><label for="pinTitle">Caption</label><input id="pinTitle" maxlength="80" placeholder="e.g., Small knotless with curls, done in ~5 hrs"></div>
+        <div class="two-col">
+          <div class="field">
+            <label for="pinStyle">Style</label>
+            <select id="pinStyle"><option value="" disabled selected>Choose&hellip;</option></select>
+          </div>
+          <div class="field">
+            <label for="pinShop">Which shop's work is this?</label>
+            <select id="pinShop"><option value="" disabled selected>Choose&hellip;</option></select>
+          </div>
+        </div>
+        <div class="form-actions"><button class="btn" type="button" id="pinBtn">Pin it to the board</button></div>
+      </div>
+      <div class="toast" id="pinToast"></div>
+    </div>
+
+    <div class="filters" id="pinFilters">
+      <button class="chip on" data-pf="all">All</button>
+      <button class="chip" data-pf="cuts">Cuts &amp; Fades</button>
+      <button class="chip" data-pf="braids">Braids &amp; Twists</button>
+      <button class="chip" data-pf="locs">Locs</button>
+      <button class="chip" data-pf="natural">Natural &amp; Silk Press</button>
+    </div>
+    <div class="masonry" id="pinBoard"></div>
+    <div id="pinEmpty"></div>
+  </section>
+
+  <!-- ================= MAINTAIN ================= -->
+  <section id="maintain" class="panel">
+    <div class="panel-head">
+      <h2>Keep it right between appointments</h2>
+      <p>A fresh style is an investment — here's how to protect it in a dorm, through practices, and through Ohio weather, so it lasts until the next trip.</p>
+      <div class="braid"></div>
+    </div>
+    <div class="care-wrap">
+      <details class="care" open>
+        <summary>✂️ Cuts, fades &amp; waves</summary>
+        <div class="care-body">
+          <p><b>Daily:</b> brush morning and night (soft or medium brush for waves), and moisturize — a little leave-in or light oil keeps your scalp from flaking under a fresh fade.</p>
+          <p><b>At night:</b> durag or wave cap, every night. It keeps your lineup crisp longer, trains waves, and protects against cotton pillowcase friction. A satin pillowcase is a good backup for nights you skip it.</p>
+          <p><b>Between cuts:</b> a fade looks its best for about 2 weeks. If the next trip is 3+ weeks out, keep edges tidy and let the top grow — resist letting a friend with clippers "just clean it up" unless you trust them with your hairline.</p>
+        </div>
+      </details>
+      <details class="care">
+        <summary>🪢 Braids &amp; twists (weeks 1–8)</summary>
+        <div class="care-body">
+          <p><b>Week 1:</b> if it's too tight — tension bumps, headache, edges pulling — that's not something to push through. A warm shower on your scalp helps loosen; if it doesn't ease in a couple days, tell the office so the braider can adjust. Tight braids can cause real, lasting edge damage.</p>
+          <p><b>Every night:</b> satin bonnet or scarf. This is the single biggest thing that decides whether braids look good in week 5.</p>
+          <p><b>Weekly:</b> oil your scalp (lightweight oil on the parts), and refresh frizz with mousse smoothed over the braids. Cleanse your scalp every 1–2 weeks — diluted shampoo or scalp cleanser dabbed on the parts, rinsed gently, then dry your roots fully so they don't stay damp.</p>
+          <p><b>Takedown:</b> 6–8 weeks is the max. Past that, new growth tangles and matting starts — schedule the takedown/next style trip in week 6, not week 9. Budget a couple hours to detangle after takedown before any new style.</p>
+        </div>
+      </details>
+      <details class="care">
+        <summary>🔒 Locs</summary>
+        <div class="care-body">
+          <p><b>Starter phase (first 2–3 months):</b> hands out of your hair, no heavy washing — when you do wash, use a residue-free shampoo and a stocking cap to keep coils intact. Skip conditioner early; it loosens baby locs.</p>
+          <p><b>Ongoing:</b> retwist every 4–6 weeks (that's what the trip board is for). Between retwists: oil your scalp, sleep in a bonnet or loc sock, and don't over-retwist — too-frequent twisting thins roots.</p>
+          <p><b>Athletes:</b> sweat is fine, buildup isn't. Rinse or use a witch-hazel scalp refresher after heavy weeks, and let locs dry fully — damp locs held under a beanie can mildew.</p>
+        </div>
+      </details>
+      <details class="care">
+        <summary>🌀 Natural hair &amp; wash day in a dorm</summary>
+        <div class="care-body">
+          <p><b>Wash day (weekly or biweekly):</b> detangle with conditioner in and a wide-tooth comb, ends to roots, before shampooing. Deep condition when you can — even 15 minutes under a shower cap while you do homework counts.</p>
+          <p><b>Moisture routine:</b> liquid, then cream, then oil (the LOC method) on damp hair. Dorm heaters are brutally dry in winter — up your moisture game from November to March.</p>
+          <p><b>Drying:</b> microfiber towel or an old t-shirt, never rough terrycloth rubbing. A cheap hooded-dryer attachment or diffuser is worth it if you style wet.</p>
+          <p><b>Silk press holders:</b> wrap it at night, dodge rain and steamy bathrooms — it reverts when wet, and that's normal, not ruined hair.</p>
+        </div>
+      </details>
+      <details class="care">
+        <summary>🏃🏾 Sports, swim &amp; sweat</summary>
+        <div class="care-body">
+          <p><b>Practice season:</b> sweat mostly hits your scalp — blot with a cloth, refresh with a light braid spray or witch-hazel mix, and wash your scalp more often than usual. Braids and cornrows are the most practice-proof styles; the style finder can point you there.</p>
+          <p><b>Swimming:</b> soak your hair with clean water <i>before</i> the pool (hair full of clean water absorbs less chlorine), wear a swim cap over it, and rinse immediately after. A leave-in conditioner under the cap adds a barrier.</p>
+          <p><b>Helmets:</b> a thin durag or wave cap under a helmet saves your lineup and cuts friction on braids.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="kit">
+      <h3>🧺 The dorm kit</h3>
+      <p>The Hudson drugstores don't stock much for us. This is the checklist to bring from home, order online, or — better — hand to the DEIB office and school store as a "please stock these" list.</p>
+      <div class="kit-grid">
+        <div><span>Sleep:</span> satin bonnet</div>
+        <div><span>Sleep:</span> durag / wave cap</div>
+        <div><span>Sleep:</span> satin pillowcase (backup)</div>
+        <div><span>Tools:</span> wide-tooth comb</div>
+        <div><span>Tools:</span> detangling brush</div>
+        <div><span>Tools:</span> rat-tail comb (parts)</div>
+        <div><span>Tools:</span> spray bottle</div>
+        <div><span>Tools:</span> microfiber towel</div>
+        <div><span>Wash:</span> moisturizing shampoo</div>
+        <div><span>Wash:</span> residue-free shampoo (locs)</div>
+        <div><span>Wash:</span> deep conditioner</div>
+        <div><span>Style:</span> leave-in conditioner</div>
+        <div><span>Style:</span> light hair oil (jojoba/argan)</div>
+        <div><span>Style:</span> edge control</div>
+        <div><span>Style:</span> braid mousse</div>
+        <div><span>Style:</span> curl cream / shea butter</div>
+        <div><span>Trips:</span> braiding hair (if your shop doesn't include it)</div>
+        <div><span>Extra:</span> shower cap &middot; swim cap</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STUDENT BOARD ================= -->
+  <section id="board" class="panel">
+    <div class="panel-head">
+      <h2>Trip board</h2>
+      <p>Can&rsquo;t drive? Post a notice here. The DEIB office checks the board, groups requests going to the same area, and schedules a van trip.</p>
+      <div class="braid"></div>
+    </div>
+
+    <p class="notice">Heads up: posts on this board are visible to everyone using this guide, including the DEIB office &mdash; that&rsquo;s how they see your request. Use your school name or initials, and don&rsquo;t post anything private.</p>
+
+    <form class="card-form" id="reqForm">
+      <div class="field">
+        <label for="fName">Name (or initials)</label>
+        <input id="fName" type="text" maxlength="60" required placeholder="e.g., Jordan M. &rsquo;27">
+      </div>
+      <div class="field">
+        <label for="fService">What do you need done?</label>
+        <select id="fService" required>
+          <option value="" disabled selected>Choose a service&hellip;</option>
+        </select>
+        <p class="hint" id="svcHint" style="display:none"></p>
+      </div>
+      <div class="field">
+        <label for="fShop">Preferred shop (optional)</label>
+        <select id="fShop">
+          <option value="">No preference — whatever trip works</option>
+        </select>
+        <p class="hint">Requests going to the same area get grouped into one trip.</p>
+      </div>
+      <div class="field">
+        <label for="fTiming">How soon?</label>
+        <select id="fTiming" required>
+          <option value="" disabled selected>Choose&hellip;</option>
+          <option>This week if possible</option>
+          <option>Within 2 weeks</option>
+          <option>Flexible — next trip that goes</option>
+          <option>Before a specific date (say in notes)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="fNotes">Notes (optional)</label>
+        <textarea id="fNotes" maxlength="300" placeholder="e.g., need it before the formal on the 24th; free Sat afternoons"></textarea>
+      </div>
+      <div class="form-actions">
+        <button class="btn" type="button" id="reqBtn">Post my request</button>
+      </div>
+    </form>
+    <div class="toast" id="toast"></div>
+
+    <div class="panel-head" style="margin-top:44px">
+      <h2 style="font-size:1.3rem">Upcoming trips</h2>
+      <p>Van runs the office has already scheduled. If your request was assigned to one, your name is on the list.</p>
+    </div>
+    <div class="req-list" id="studentTrips"></div>
+
+    <div class="panel-head" style="margin-top:44px">
+      <h2 style="font-size:1.3rem">Open requests</h2>
+      <p>See who&rsquo;s waiting &mdash; or type your name to check the status of your own request and which trip you&rsquo;re on.</p>
+    </div>
+    <div style="max-width:420px;margin:0 auto 16px">
+      <input id="trackName" type="search" maxlength="60" placeholder="🔎 Find my request — type your name"
+        style="width:100%;font-family:'Archivo';font-size:.92rem;background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:12px 18px">
+    </div>
+    <div class="refresh-row"><button class="btn ghost small" id="refreshStudent">Refresh board</button></div>
+    <div class="req-list" id="studentList"></div>
+  </section>
+
+  <!-- ================= ADMIN ================= -->
+  <section id="admin" class="panel">
+    <div class="panel-head">
+      <h2>DEIB Office</h2>
+      <p>Staff dashboard: review requests, schedule trips, and manage the shop directory.</p>
+      <div class="braid"></div>
+    </div>
+
+    <!-- Gate: setup -->
+    <div class="gate" id="gateSetup" style="display:none">
+      <form class="card-form" id="setupForm">
+        <p style="font-size:.88rem;color:var(--cocoa);margin-bottom:16px">No office passcode exists yet. Set one now &mdash; staff will use it to open this dashboard on any device.</p>
+        <div class="field">
+          <label for="setup1">Create passcode</label>
+          <input id="setup1" type="password" minlength="4" required autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="setup2">Confirm passcode</label>
+          <input id="setup2" type="password" minlength="4" required autocomplete="off">
+        </div>
+        <div class="form-actions"><button class="btn" type="button" id="setupBtn">Set passcode &amp; open dashboard</button></div>
+        <p class="hint" style="margin-top:12px;text-align:center">Fair warning: this lock keeps students and casual visitors out, but it isn&rsquo;t bank-grade security. Don&rsquo;t reuse a password you use elsewhere.</p>
+      </form>
+    </div>
+
+    <!-- Gate: login -->
+    <div class="gate" id="gateLogin" style="display:none">
+      <form class="card-form" id="loginForm">
+        <div class="field">
+          <label for="loginPass">Office passcode</label>
+          <input id="loginPass" type="password" required autocomplete="off" placeholder="Staff only">
+        </div>
+        <div class="form-actions"><button class="btn" type="button" id="loginBtn">Open dashboard</button></div>
+      </form>
+      <p class="hint" style="text-align:center;margin-top:10px">Forgot it? Anyone in the office who knows the current passcode can change it inside the dashboard.</p>
+    </div>
+    <div class="toast" id="gateToast"></div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" style="display:none">
+      <div class="admin-bar">
+        <span>Signed in as <b>DEIB staff</b> &middot; changes save for everyone instantly</span>
+        <button class="btn ghost small" id="lockBtn" style="border-color:#8FB59D;color:#CFE0D3">Lock dashboard</button>
+      </div>
+
+      <div class="plan-summary" id="planSummary"></div>
+
+      <!-- Plan a trip -->
+      <div class="section-h"><h3>🚐 Schedule a trip</h3></div>
+      <form class="card-form" id="tripForm" style="max-width:800px">
+        <div class="two-col">
+          <div class="field">
+            <label for="tDate">Date</label>
+            <input id="tDate" type="date" required>
+          </div>
+          <div class="field">
+            <label for="tTime">Departure time</label>
+            <input id="tTime" type="time" required>
+          </div>
+        </div>
+        <div class="two-col">
+          <div class="field">
+            <label for="tDest">Destination</label>
+            <select id="tDest" required></select>
+          </div>
+          <div class="field">
+            <label for="tSeats">Van seats</label>
+            <input id="tSeats" type="number" min="1" max="20" value="7" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="tNote">Note for students (optional)</label>
+          <input id="tNote" type="text" maxlength="140" placeholder="e.g., Meet at Ellsworth circle. Bring your own braiding hair if your shop requires it.">
+        </div>
+        <div class="form-actions"><button class="btn" type="button" id="tripBtn">Create trip</button></div>
+      </form>
+
+      <div class="section-h"><h3>Scheduled trips</h3></div>
+      <div class="req-list" id="adminTrips"></div>
+
+      <!-- Requests -->
+      <div class="section-h"><h3>📋 Student requests</h3></div>
+      <div class="refresh-row"><button class="btn ghost small" id="refreshAdmin">Refresh</button></div>
+      <div class="req-list" id="adminList"></div>
+
+      <!-- Shop suggestions -->
+      <div class="section-h"><h3>💡 Shop suggestions from students</h3></div>
+      <div class="req-list" id="suggList" style="margin-bottom:10px"></div>
+
+      <!-- Shop management -->
+      <div class="section-h"><h3>✂️ Manage the directory</h3></div>
+      <p class="notice" style="margin-bottom:16px">Adding or removing a shop here updates the student-facing directory for everyone. Removed shops disappear from the Find a Shop tab, the style finder, and the request form.</p>
+      <div class="shop-admin-list" id="shopAdminList"></div>
+      <div style="max-width:800px;margin:14px auto 0;text-align:right">
+        <button class="btn ghost small" id="restoreDefaults">Restore original 14 shops</button>
+      </div>
+
+      <div class="section-h"><h3>Add a shop</h3></div>
+      <form class="card-form" id="addShopForm" style="max-width:800px">
+        <div class="two-col">
+          <div class="field"><label for="sName">Shop name</label><input id="sName" required maxlength="60"></div>
+          <div class="field"><label for="sArea">Area / town</label><input id="sArea" required maxlength="40" placeholder="e.g., Twinsburg"></div>
+        </div>
+        <div class="two-col">
+          <div class="field"><label for="sMins">Drive time from campus (min)</label><input id="sMins" type="number" min="1" max="90" required></div>
+          <div class="field"><label for="sPhone">Phone</label><input id="sPhone" required maxlength="20" placeholder="(330) 555-0100"></div>
+        </div>
+        <div class="field"><label for="sAddr">Address</label><input id="sAddr" required maxlength="120"></div>
+        <div class="field">
+          <label>What do they do? (check all that apply)</label>
+          <div class="opts" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr))">
+            <button type="button" class="opt catpick" data-c="cuts">Cuts &amp; Fades</button>
+            <button type="button" class="opt catpick" data-c="braids">Braids &amp; Twists</button>
+            <button type="button" class="opt catpick" data-c="locs">Locs</button>
+            <button type="button" class="opt catpick" data-c="natural">Natural / Silk press</button>
+          </div>
+        </div>
+        <div class="two-col">
+          <div class="field"><label for="sRating">Rating (optional)</label><input id="sRating" placeholder="e.g., 4.8" maxlength="4"></div>
+          <div class="field"><label for="sPrice">Typical prices (optional)</label><input id="sPrice" maxlength="80" placeholder="e.g., Cuts ~$30–40"></div>
+        </div>
+        <div class="field"><label for="sTags">Tags, comma-separated (optional)</label><input id="sTags" maxlength="90" placeholder="Knotless, Gentle, Walk-ins"></div>
+        <div class="field"><label for="sBlurb">One-line description</label><input id="sBlurb" required maxlength="180"></div>
+        <div class="field"><label for="sKnow">Know before you go (optional)</label><input id="sKnow" maxlength="160" placeholder="e.g., Cash only. Book two weeks out."></div>
+        <div class="field"><label for="sHours">Hours (optional — one line per entry)</label><textarea id="sHours" maxlength="300" placeholder="Mon–Fri 9 AM–6 PM&#10;Sat 9 AM–3 PM&#10;Sun Closed"></textarea></div>
+        <div class="form-actions"><button class="btn" type="button" id="addShopBtn">Add to directory</button></div>
+      </form>
+
+      <!-- Passcode -->
+      <div class="section-h"><h3>🔒 Office passcode</h3></div>
+      <form class="card-form" id="passForm">
+        <div class="field"><label for="pOld">Current passcode</label><input id="pOld" type="password" required autocomplete="off"></div>
+        <div class="field"><label for="pNew">New passcode</label><input id="pNew" type="password" minlength="4" required autocomplete="off"></div>
+        <div class="form-actions"><button class="btn ghost small" type="button" id="passBtn">Change passcode</button></div>
+      </form>
+
+      <div class="toast" id="adminToast"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <b>The Crown Guide</b> &middot; maintained by the WRA DEIB Office with the Black Student Union<br>
+  Shop details change &mdash; always call ahead. Want a shop added? Tell the DEIB office and they can add it in one minute.
+</footer>
+
+<script>
+/* =================== KEYS =================== */
+const K_REQ="wra-hair-requests", K_SHOPS="wra-hair-shops", K_TRIPS="wra-hair-trips", K_ADMIN="wra-hair-adminkey", K_SUGG="wra-hair-suggestions";
+let mem={};            // in-memory fallback when shared storage is unavailable
+let storageOK=true;    // flips false on first failure
+let unlocked=false;    // admin session (until page reload)
+
+const SERVICES=[
+  {n:"Taper fade / lineup",c:"cuts"},{n:"High top fade",c:"cuts"},{n:"Other haircut",c:"cuts"},
+  {n:"Knotless braids",c:"braids"},{n:"Box braids",c:"braids"},{n:"Boho braids",c:"braids"},
+  {n:"Cornrows / stitch braids",c:"braids"},{n:"Two-strand twists",c:"braids"},{n:"Passion / kinky twists",c:"braids"},
+  {n:"Starter locs",c:"locs"},{n:"Loc retwist / maintenance",c:"locs"},
+  {n:"Silk press",c:"natural"},{n:"Curly cut / natural styling",c:"natural"},
+  {n:"Not sure yet — need help deciding",c:"any"}
+];
+const CAT_LABEL={cuts:"cuts & fades",braids:"braids & twists",locs:"locs",natural:"natural styling & silk press"};
+/* Which service categories a trip's destination actually offers */
+function tripCats(shops,t){
+  if(t.dest.startsWith("shop:")){
+    const s=shops.find(x=>x.id===t.dest.slice(5));
+    return s?s.cat:null;
+  }
+  const area=t.dest.slice(5);
+  const inArea=shops.filter(s=>s.area===area);
+  return inArea.length?[...new Set(inArea.flatMap(s=>s.cat))]:null;
+}
+
+/* Sandbox-safe replacement for confirm(): first tap arms the button, second tap executes */
+function confirm2(btn,fn){
+  if(btn.dataset.armed){ clearTimeout(btn._t); delete btn.dataset.armed; btn.textContent=btn._orig; fn(); return; }
+  btn.dataset.armed="1"; btn._orig=btn.textContent; btn.textContent="Tap again to confirm";
+  btn._t=setTimeout(()=>{ delete btn.dataset.armed; btn.textContent=btn._orig; },3500);
+}
+
+/* =================== DEFAULT DATA =================== */
+const DEFAULT_SHOPS=[
+  {id:"barbersden", name:"The Barbers Den", cat:["cuts"], area:"Stow", mins:15,
+   addr:"4161 Steels Pointe Ste 200, Stow, OH 44224", phone:"(234) 716-3555", rating:"5.0", count:446,
+   blurb:"Precision fades and straight-razor work with a huge, loyal following. Closest high-volume fade shop to campus.",
+   know:"Book ahead. Cash or Venmo only — no cards. Closed Tuesdays.",
+   tags:["Taper fade","High top","Beard/lineup"]},
+  {id:"vault", name:"The Vault Barbershop", cat:["cuts"], area:"Akron", mins:25,
+   addr:"1910 Brown St, Akron, OH 44301", phone:"(330) 690-2849", rating:"4.9", count:465,
+   blurb:"A standout Black barbershop in Akron — clean shop, online booking, and barbers who live and breathe fades.",
+   know:"Book online in advance; walk-in slots go fast. Open Sundays.",
+   tags:["Taper fade","High top","Designs"]},
+  {id:"experience", name:"The Experience Barber & Beauty", cat:["cuts"], area:"Downtown Akron", mins:25,
+   addr:"88 E Mill St, Akron, OH 44308", phone:"(330) 475-2522", rating:"4.8", count:51,
+   blurb:"Downtown Akron shop known for consistent, detail-oriented cuts — ask for DeShawn.",
+   know:"Closed Sun–Mon. Fri/Sat have the longest hours.",
+   tags:["Fades","Lineups","Kids OK"]},
+  {id:"crosscuts", name:"CrossCuts Barber Co.", cat:["cuts"], area:"Akron (Darrow Rd)", mins:20,
+   addr:"409 Darrow Rd Ste A, Akron, OH 44305", phone:"(330) 338-2020", rating:"5.0", count:8,
+   blurb:"One-chair private studio on the Darrow Rd corridor toward campus. Calm, unhurried, and precise.",
+   know:"Appointment-based — call or text Dez first.",
+   tags:["Fades","Private studio"]},
+  {id:"kutz", name:"Kutz", cat:["cuts"], area:"West Akron", mins:30,
+   addr:"567 Vernon Odom Blvd, Akron, OH 44307", phone:"(234) 678-7277", rating:"4.4", count:134,
+   blurb:"Classic neighborhood Black barbershop — multiple chairs, walk-ins possible, designs available.",
+   know:"Walk-ins work but expect a wait on Saturdays. Closed Sundays.",
+   tags:["Fades","Designs","Walk-ins"]},
+  {id:"bells", name:"Bells Barbershop", cat:["cuts"], area:"Hudson (in town!)", mins:5,
+   addr:"180 W Streetsboro St, Hudson, OH 44236", phone:"(234) 284-8269", rating:"4.9", count:31,
+   blurb:"The in-town backup when you can't get a ride out. A general shop, not a Black barbershop — quality varies by barber.",
+   know:"Call ahead and ask specifically for a barber experienced with coily/Type 4 hair and fades before booking.",
+   tags:["In Hudson","Call first"]},
+  {id:"texturehaus", name:"The Texture Haus", cat:["braids","locs"], area:"Twinsburg", mins:12,
+   addr:"10828 Ravenna Rd Ste 7, Twinsburg, OH 44087", phone:"(216) 302-8148", rating:"5.0", count:14,
+   blurb:"Nekole is the closest trusted braider to campus — braids, twists, locs, and extensions with a healthy-hair-first approach. Known for gentle hands.",
+   know:"By appointment. Opens 7 AM — good for getting hair done before a Saturday game.",
+   tags:["Knotless","Boho","Locs","Gentle"]},
+  {id:"silkystrands", name:"Silky Strands Salon & Spa", cat:["braids","natural"], area:"Twinsburg", mins:12,
+   addr:"10755 Ravenna Rd, Twinsburg, OH 44087", phone:"(330) 405-6544", rating:"4.7", count:62,
+   blurb:"Full-service Black salon 12 minutes away — braids, weaves, and silk presses, often in and out in 2 hours or less.",
+   know:"Closed Sun–Mon. Saturday hours end at 1 PM, so book morning.",
+   tags:["Silk press","Braids","Weaves","Color"]},
+  {id:"noiretblanc", name:"Noir et Blanc Salon", cat:["natural"], area:"Twinsburg", mins:12,
+   addr:"10828 Ravenna Rd, Twinsburg, OH 44087", phone:"(330) 840-7078", rating:"4.7", count:113,
+   blurb:"Curl specialists next door to The Texture Haus — curly cuts, curl definition, and healthy-hair consults.",
+   know:"Deposit required to book. Confirm your exact style over the phone before the trip.",
+   tags:["Curly cuts","Curl care"]},
+  {id:"dee", name:"Dee African Hair Braiding", cat:["braids"], area:"Akron", mins:25,
+   addr:"873 Brown St, Akron, OH 44311", phone:"(262) 269-7016", rating:"4.4", count:57,
+   blurb:"Akron braiding shop people drive an hour for — knotless, boho, and kinky twists, with braiding hair included in the price.",
+   know:"Takes walk-ins, but a full style runs 4–5 hours — plan a long trip.",
+   tags:["Knotless","Boho","Twists","Hair included"]},
+  {id:"christinas", name:"Christina's African Hair Braiding", cat:["braids"], area:"Maple Heights", mins:20,
+   addr:"5222 Northfield Rd, Maple Heights, OH 44137", phone:"(216) 450-9494", rating:"4.8", count:19,
+   blurb:"Solo braider with meticulous, unrushed work — clients rave about her parts and professionalism.",
+   know:"She works alone: book well ahead and expect a full-day style. Dropping hair off early can help.",
+   tags:["Knotless","Detail work"]},
+  {id:"eezytouch", name:"Eezytouch African Hair Braiding", cat:["braids"], area:"Bedford Heights", mins:20,
+   addr:"5303 Northfield Rd, Bedford Heights, OH 44146", phone:"(216) 269-6139", rating:"5.0", count:54,
+   blurb:"Doris is known for being gentle — repeatedly praised by tender-headed clients and people with thinning edges.",
+   know:"Home studio; by appointment. Great pick for a first-ever braided style.",
+   tags:["Gentle","Tender-headed friendly","Twists"]},
+  {id:"aba", name:"Aba African Hair Braiding", cat:["braids"], area:"Maple Heights", mins:20,
+   addr:"6156 Dunham Rd, Maple Heights, OH 44137", phone:"(216) 606-8100", rating:"4.4", count:323,
+   blurb:"Big, busy shop with very long hours — the flexible option when everyone else is booked.",
+   know:"Open 6 AM to nearly midnight daily. Be very clear and firm about style, size, and tightness up front.",
+   tags:["Long hours","High capacity","Micro/XS sizes"]},
+  {id:"hobl", name:"House of Beautiful Locs", cat:["locs"], area:"Bedford Heights", mins:20,
+   addr:"5311 Northfield Rd Ste 2, Bedford Heights, OH 44146", phone:"(216) 990-0309", rating:"4.6", count:346,
+   blurb:"The loc destination — starter locs, retwists, and styling from a shop that also runs loc-care workshops.",
+   know:"Book online. Ask about the Wednesday special for maintenance. Closed Sun–Mon.",
+   tags:["Starter locs","Retwist","Loc styles"]}
+];
+
+/* Ballpark prices — students should always confirm when booking */
+const DEFAULT_PRICES={
+  barbersden:"Cuts ~$25–40", vault:"Cuts ~$30–45", experience:"Cuts ~$25–40",
+  crosscuts:"Cuts ~$30–40", kutz:"Cuts ~$20–35", bells:"Cuts ~$25–35",
+  texturehaus:"Twists ~$90–160 · Knotless ~$160–260",
+  silkystrands:"Silk press ~$70–110 · Braids ~$120–220",
+  noiretblanc:"Curly cut ~$60–110",
+  dee:"Knotless ~$150–250, hair included",
+  christinas:"Knotless ~$160–260",
+  eezytouch:"Braids & twists ~$120–220",
+  aba:"Braids ~$130–250",
+  hobl:"Retwist ~$60–100 · Starter locs ~$90–180"
+};
+DEFAULT_SHOPS.forEach(s=>{ if(DEFAULT_PRICES[s.id]) s.price=DEFAULT_PRICES[s.id]; });
+
+/* Opening hours (from listings at time of research — the office should re-verify periodically) */
+const DEFAULT_HOURS={
+  barbersden:["Mon 9 AM–6 PM","Tue Closed","Wed–Fri 9 AM–6 PM","Sat–Sun 9 AM–3 PM"],
+  vault:["Mon–Tue 9 AM–5:30 PM","Wed 9 AM–3 PM","Thu–Fri 9 AM–5:30 PM","Sat–Sun 9 AM–3 PM"],
+  experience:["Mon Closed","Tue–Wed 10 AM–5 PM","Thu 10 AM–6 PM","Fri–Sat 9 AM–7 PM","Sun Closed"],
+  crosscuts:["By appointment — call or text to book"],
+  kutz:["Mon–Tue 9 AM–5 PM","Wed–Sat 10 AM–6 PM","Sun Closed"],
+  bells:["Mon–Tue 9 AM–6 PM","Wed Closed","Thu–Fri 9 AM–6 PM","Sat 9 AM–3 PM","Sun Closed"],
+  texturehaus:["Mon 7 AM–3 PM","Tue & Thu 7 AM–5 PM","Wed, Fri & Sat 7 AM–7 PM","Sun Closed"],
+  silkystrands:["Mon Closed","Tue–Fri 10 AM–6 PM","Sat 8 AM–1 PM","Sun Closed"],
+  noiretblanc:["Mon Closed","Tue–Thu 10 AM–8 PM","Fri 10 AM–6 PM","Sat 9 AM–3 PM","Sun Closed"],
+  dee:["Flexible walk-in hours — call ahead to confirm"],
+  christinas:["By appointment — call or text to schedule"],
+  eezytouch:["Mon–Sat 9 AM–7 PM","Sun Closed"],
+  aba:["Mon–Sat 6 AM–11:45 PM","Sun 8 AM–10 PM"],
+  hobl:["Mon Closed","Tue–Thu 9 AM–5 PM","Fri 9 AM–6 PM","Sat 7 AM–6 PM","Sun Closed"]
+};
+DEFAULT_SHOPS.forEach(s=>{ if(DEFAULT_HOURS[s.id]) s.hours=DEFAULT_HOURS[s.id]; });
+
+const STYLES=[
+  {name:"Taper Fade / Lineup", goal:"cut", time:"short", last:["weeks"], chair:"30–45 min", price:"$25–40",
+   upkeep:"Refresh every 2–3 weeks",
+   desc:"The staple. Clean fade on the sides, shaped up hairline. Low fuss between cuts — brush, moisturize, sleep with a durag if you're keeping waves.",
+   shops:["barbersden","vault","crosscuts","experience"]},
+  {name:"High Top Fade", goal:"cut", time:"short", last:["weeks"], chair:"45–60 min", price:"$30–45",
+   upkeep:"Shape-up every 2 weeks to keep the box crisp",
+   desc:"Height on top, faded sides. Needs a barber who can sculpt — worth the trip to a shop that does them daily.",
+   shops:["vault","barbersden","kutz"]},
+  {name:"Two-Strand Twists", goal:"protective", time:"medium", last:["weeks","month"], chair:"2–4 hrs", price:"$80–160",
+   upkeep:"Bonnet/durag at night; oil scalp weekly. Lasts 2–4 weeks, then unravels into a twist-out",
+   desc:"Done on your own hair, no added hair needed. Lower cost, shorter chair time, and you get a bonus twist-out style at the end.",
+   shops:["texturehaus","eezytouch","silkystrands"]},
+  {name:"Cornrows / Stitch Braids", goal:"protective", time:"medium", last:["weeks","month"], chair:"1.5–3 hrs", price:"$60–150",
+   upkeep:"Bonnet at night, edge control as needed. 2–4 weeks",
+   desc:"Fast, clean, and athletic-friendly — stays put under a helmet. Feed-in adds length and polish.",
+   shops:["texturehaus","dee","silkystrands"]},
+  {name:"Knotless Braids", goal:"protective", time:"long", last:["month","longer"], chair:"4–7 hrs", price:"$150–280",
+   upkeep:"Mousse + scarf at night, oil scalp weekly. 4–8 weeks",
+   desc:"The most requested style for a reason: lighter on the roots than box braids, less tension day one, and exam-season proof.",
+   shops:["texturehaus","dee","christinas","eezytouch"]},
+  {name:"Box Braids", goal:"protective", time:"long", last:["month","longer"], chair:"4–8 hrs", price:"$120–250",
+   upkeep:"Same as knotless; can feel tighter the first few days. 6–8 weeks",
+   desc:"Classic, structured, and slightly cheaper than knotless. Speak up immediately if it's too tight — a good braider adjusts.",
+   shops:["dee","aba","christinas"]},
+  {name:"Boho Braids", goal:"protective", time:"long", last:["month","longer"], chair:"5–8 hrs", price:"$180–300",
+   upkeep:"Detangle the curly pieces gently; 4–6 weeks",
+   desc:"Knotless with curly strands left out. The formal-and-photos style. Budget the longest chair time of anything on this list.",
+   shops:["dee","texturehaus","christinas"]},
+  {name:"Passion / Kinky Twists", goal:"protective", time:"long", last:["month","longer"], chair:"3–6 hrs", price:"$120–220",
+   upkeep:"Bonnet at night; 4–6 weeks",
+   desc:"Softer, fuller look than braids with a bit less chair time. Kinky twists blend seamlessly with 4-type hair.",
+   shops:["dee","eezytouch","texturehaus"]},
+  {name:"Starter Locs", goal:"locs", time:"medium", last:["longer"], chair:"2–4 hrs", price:"$80–180",
+   upkeep:"Retwist every 4–6 weeks; no heavy washing the first month",
+   desc:"Beginning the journey. Go to a loc specialist — how they're started determines how they mature. HOBL even runs workshops.",
+   shops:["hobl","texturehaus"]},
+  {name:"Loc Retwist / Maintenance", goal:"locs", time:"medium", last:["month","longer"], chair:"1–2 hrs", price:"$60–100",
+   upkeep:"Every 4–6 weeks; oil scalp between visits",
+   desc:"Regular maintenance keeps roots neat and locs healthy. Ask about interlocking if you're active in sports and wash often.",
+   shops:["hobl","texturehaus"]},
+  {name:"Silk Press", goal:"straight", time:"medium", last:["weeks"], chair:"2–3 hrs", price:"$65–120",
+   upkeep:"Wrap at night; avoid moisture/sweat — it reverts when wet",
+   desc:"Straight, swinging, heat-styled hair with no chemicals. Best timed for events, breaks, or photo weeks — Ohio humidity is the enemy.",
+   shops:["silkystrands"]},
+  {name:"Curly Cut / Definition", goal:"straight", time:"medium", last:["weeks","month"], chair:"1.5–2.5 hrs", price:"$60–110",
+   upkeep:"Refresh curls with water + leave-in; trim every 3–4 months",
+   desc:"A cut shaped for your curl pattern plus a defined style. The move if you wear your hair out and want it to actually behave.",
+   shops:["noiretblanc","silkystrands"]}
+];
+
+/* =================== STORAGE HELPERS =================== */
+async function sGet(key, fallback){
+  if(key in mem) return mem[key];
+  try{
+    const r=await window.storage.get(key,true);
+    return r&&r.value?JSON.parse(r.value):fallback;
+  }catch(e){ return fallback; }
+}
+async function sSet(key,val){
+  mem[key]=val; // keep local copy so the UI is always consistent
+  try{
+    const r=await window.storage.set(key,JSON.stringify(val),true);
+    if(!r) throw new Error("no result");
+    delete mem[key]; // persisted — no need for fallback copy
+    return true;
+  }catch(e){ storageOK=false; return false; }
+}
+async function getShops(){ const s=await sGet(K_SHOPS,null); return Array.isArray(s)&&s.length?s:DEFAULT_SHOPS; }
+async function getReqs(){ return await sGet(K_REQ,[]); }
+async function getTrips(){ return await sGet(K_TRIPS,[]); }
+async function getSuggs(){ return await sGet(K_SUGG,[]); }
+
+function esc(s){const d=document.createElement("div");d.textContent=s||"";return d.innerHTML;}
+function mapsLink(q){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);}
+function fmtDate(ts){return new Date(ts).toLocaleDateString(undefined,{month:"short",day:"numeric"});}
+function fmtTripDate(d,t){
+  try{
+    const dt=new Date(d+"T"+(t||"09:00"));
+    return dt.toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"})+
+      " · "+dt.toLocaleTimeString(undefined,{hour:"numeric",minute:"2-digit"});
+  }catch(e){return d+" "+t;}
+}
+async function hashText(s){
+  try{
+    const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode("wra-crown:"+s));
+    return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");
+  }catch(e){ return "plain:"+s; }
+}
+function toast(id,msg,isErr){
+  const t=document.getElementById(id);
+  t.className="toast"+(isErr?" err":"");
+  t.textContent=msg; t.style.display="block";
+  clearTimeout(t._h); t._h=setTimeout(()=>t.style.display="none",6000);
+}
+
+/* =================== TABS =================== */
+document.querySelectorAll(".tab-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById(btn.dataset.tab).classList.add("active");
+    if(btn.dataset.tab==="board") refreshBoard();
+    if(btn.dataset.tab==="admin") openAdminTab();
+    if(btn.dataset.tab==="pins") refreshPins();
+    if(btn.dataset.tab==="shops"){ closeShopDetail(); renderShops(currentFilter); }
+    window.scrollTo({top:0});
+  });
+});
+
+/* =================== SHOP DIRECTORY =================== */
+let currentFilter="all";
+async function renderShops(filter){
+  currentFilter=filter;
+  const shops=await getShops();
+  const grid=document.getElementById("shopGrid");
+  let list=shops.slice();
+  if(filter==="close") list=list.filter(s=>s.mins<=15).sort((a,b)=>a.mins-b.mins);
+  else if(filter==="locs") list=list.filter(s=>s.cat.includes("locs")||s.cat.includes("natural"));
+  else if(filter!=="all") list=list.filter(s=>s.cat.includes(filter));
+  if(!list.length){grid.innerHTML=`<div class="empty" style="grid-column:1/-1">Nothing in this category right now — the DEIB office can add shops from their dashboard.</div>`;return;}
+  grid.innerHTML=list.map(s=>`
+    <article class="shop" id="shop-${s.id}" data-detail="${s.id}" role="button" tabindex="0" aria-label="Open details for ${esc(s.name)}">
+      <div class="shop-top">
+        <h3>${esc(s.name)}</h3>
+        <span class="dist">~${s.mins} min &middot; ${esc(s.area)}</span>
+      </div>
+      ${s.rating?`<div class="rating"><b>★ ${esc(s.rating)}</b>${s.count?` &middot; ${s.count} reviews`:""}</div>`:""}
+      ${s.price?`<div class="price-line">💵 ${esc(s.price)}</div>`:""}
+      <div class="tags">${(s.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>
+      <p class="blurb">${esc(s.blurb)}</p>
+      ${s.know?`<div class="know">💡 ${esc(s.know)}</div>`:""}
+      <div class="shop-links">
+        <a href="tel:${(s.phone||"").replace(/[^0-9]/g,"")}">Call ${esc(s.phone)}</a>
+        <a href="${mapsLink(s.name+" "+s.addr)}" target="_blank" rel="noopener">Directions</a>
+      </div>
+      <div class="card-hint">Tap for hours, styles &amp; trips →</div>
+    </article>`).join("");
+  grid.querySelectorAll("[data-detail]").forEach(card=>{
+    card.addEventListener("click",e=>{
+      if(e.target.closest("a")) return; // don't hijack call/directions links
+      openShopDetail(card.dataset.detail);
+    });
+    card.addEventListener("keydown",e=>{
+      if(e.key==="Enter"||e.key===" "){e.preventDefault();openShopDetail(card.dataset.detail);}
+    });
+  });
+}
+document.getElementById("shopFilters").addEventListener("click",e=>{
+  const c=e.target.closest(".chip"); if(!c) return;
+  document.querySelectorAll("#shopFilters .chip").forEach(x=>x.classList.remove("on"));
+  c.classList.add("on");
+  renderShops(c.dataset.f);
+});
+
+/* --- Shop detail page --- */
+async function openShopDetail(id){
+  const [shops,trips,reqs]=await Promise.all([getShops(),getTrips(),getReqs()]);
+  const s=shops.find(x=>x.id===id); if(!s) return;
+  if(!pinCache.length) pinCache=await listPins();
+  const shopPins=pinCache.filter(p=>p.shopId===id&&!p.isDemo);
+  const pinStrip=shopPins.length?`
+    <div class="detail-card full">
+      <h3>📸 Their work on our style board</h3>
+      <div class="masonry" style="columns:3 160px">${shopPins.map(p=>`
+        <figure class="pin" data-detailpin="${p.id}">
+          <img src="${p.img}" alt="${esc(p.title||p.style)}" loading="lazy">
+          <figcaption class="pin-cap"><div class="p-style">${esc(p.style)}</div></figcaption>
+        </figure>`).join("")}
+      </div>
+    </div>`:"";
+  const catNames=(s.cat||[]).map(c=>CAT_LABEL[c]||c).join(" · ");
+  // styles this shop is recommended for
+  const styleRows=STYLES.filter(st=>st.shops.includes(id)).map(st=>
+    `<div class="style-mini"><b>${st.name}</b><span>${st.chair} · ${st.price}</span></div>`).join("");
+  // upcoming trips headed here (direct or its area)
+  const going=trips.filter(t=>!t.completed&&(t.dest==="shop:"+id||t.dest==="area:"+s.area))
+    .sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+  const tripRows=going.map(t=>{
+    const taken=reqs.filter(r=>r.tripId===t.id&&r.status!=="done").length;
+    const left=t.seats-taken;
+    return `<li>🚐 ${fmtTripDate(t.date,t.time)} — ${left>0?left+" seat"+(left>1?"s":"")+" left":"full"}</li>`;
+  }).join("");
+  document.getElementById("shopBrowse").style.display="none";
+  const d=document.getElementById("shopDetail");
+  d.style.display="";
+  d.innerHTML=`
+    <div class="back-row"><button class="btn ghost small" id="detailBack">← All shops</button></div>
+    <div class="detail">
+      <div class="detail-hero">
+        <div class="crumbs">${esc(catNames)}</div>
+        <h2>${esc(s.name)}</h2>
+        <div class="hero-meta">
+          <span class="hero-pill gold">~${s.mins} min from campus</span>
+          <span class="hero-pill">${esc(s.area)}</span>
+          ${s.rating?`<span class="hero-pill">★ ${esc(s.rating)}${s.count?" · "+s.count+" reviews":""}</span>`:""}
+          ${s.price?`<span class="hero-pill">💵 ${esc(s.price)}</span>`:""}
+        </div>
+      </div>
+      <div class="detail-actions">
+        <a href="tel:${(s.phone||"").replace(/[^0-9]/g,"")}"><button class="btn small">📞 Call ${esc(s.phone)}</button></a>
+        <a href="${mapsLink(s.name+" "+s.addr)}" target="_blank" rel="noopener"><button class="btn ghost small">🗺 Directions</button></a>
+        <button class="btn ghost small" id="detailRequest">🚐 Request a trip here</button>
+      </div>
+      <div class="detail-grid">
+        <div class="detail-card full">
+          <h3>About</h3>
+          <p>${esc(s.blurb)}</p>
+          ${s.know?`<div class="know" style="margin-top:12px">💡 ${esc(s.know)}</div>`:""}
+        </div>
+        <div class="detail-card">
+          <h3>🕐 Hours</h3>
+          ${(s.hours&&s.hours.length)?`<ul>${s.hours.map(h=>`<li>${esc(h)}</li>`).join("")}</ul>
+            <p class="hint" style="margin-top:8px">Hours change — confirm by phone before a trip.</p>`
+          :`<p>Hours not listed — call before planning a trip.</p>`}
+        </div>
+        <div class="detail-card">
+          <h3>📍 Getting there</h3>
+          <p>${esc(s.addr)}</p>
+          <p style="margin-top:8px">About <b>${s.mins} minutes</b> from campus by car — this is a trip-board shop unless you have a ride.</p>
+          ${(s.tags&&s.tags.length)?`<div class="tags" style="margin-top:10px">${s.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>`:""}
+        </div>
+        ${styleRows?`<div class="detail-card full">
+          <h3>💇🏾 Styles they're recommended for</h3>
+          ${styleRows}
+          <p class="hint" style="margin-top:8px">Chair times and prices are typical ranges, not quotes from this shop.</p>
+        </div>`:""}
+        ${pinStrip}
+        <div class="detail-card full">
+          <h3>🚐 Trips headed here</h3>
+          ${tripRows?`<ul>${tripRows}</ul><p class="hint" style="margin-top:8px">Claim a seat from the Trip Board tab.</p>`
+          :`<p>No trip scheduled to ${esc(s.area)} right now. Tap "Request a trip here" above and the DEIB office will see it.</p>`}
+        </div>
+      </div>
+    </div>`;
+  d.querySelectorAll("[data-detailpin]").forEach(f=>f.addEventListener("click",()=>openLightbox(f.dataset.detailpin)));
+  d.querySelector("#detailBack").addEventListener("click",closeShopDetail);
+  d.querySelector("#detailRequest").addEventListener("click",()=>{
+    closeShopDetail();
+    document.querySelector('.tab-btn[data-tab="board"]').click();
+    document.getElementById("fShop").value=id;
+    renderServiceOptions();
+    setTimeout(()=>document.getElementById("reqForm").scrollIntoView({behavior:"smooth",block:"start"}),120);
+  });
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function closeShopDetail(){
+  document.getElementById("shopDetail").style.display="none";
+  document.getElementById("shopDetail").innerHTML="";
+  document.getElementById("shopBrowse").style.display="";
+}
+
+/* --- Student shop suggestions --- */
+document.getElementById("sgBtn").addEventListener("click",async()=>{
+  const name=document.getElementById("sgName").value.trim();
+  const does=document.getElementById("sgDoes").value.trim();
+  if(!name||!does){ toast("suggToast","At minimum, give the shop's name and what they do.",true); return; }
+  const sugg={
+    id:"g"+Date.now()+Math.random().toString(36).slice(2,5),
+    name, does,
+    area:document.getElementById("sgArea").value.trim(),
+    phone:document.getElementById("sgPhone").value.trim(),
+    why:document.getElementById("sgWhy").value.trim(),
+    by:document.getElementById("sgBy").value.trim(),
+    createdAt:Date.now()
+  };
+  const list=await getSuggs(); list.push(sugg);
+  const ok=await sSet(K_SUGG,list);
+  toast("suggToast", ok?"Sent! The DEIB office will see your suggestion on their dashboard."
+    :"Couldn't reach shared storage — the office may not see this. Try again inside Claude or tell them in person.", !ok);
+  ["sgName","sgArea","sgDoes","sgPhone","sgWhy","sgBy"].forEach(id=>document.getElementById(id).value="");
+});
+
+async function populateShopSelects(){
+  const shops=await getShops();
+  const fShop=document.getElementById("fShop");
+  fShop.querySelectorAll("option:not(:first-child)").forEach(o=>o.remove());
+  shops.forEach(s=>{
+    const o=document.createElement("option");
+    o.value=s.id;o.textContent=`${s.name} (${s.area})`;
+    fShop.appendChild(o);
+  });
+  renderServiceOptions();
+  const tDest=document.getElementById("tDest");
+  tDest.innerHTML="";
+  const areas=[...new Set(shops.map(s=>s.area))];
+  areas.forEach(a=>{
+    const o=document.createElement("option");o.value="area:"+a;o.textContent=a+" (area run)";tDest.appendChild(o);
+  });
+  shops.forEach(s=>{
+    const o=document.createElement("option");o.value="shop:"+s.id;o.textContent=s.name;tDest.appendChild(o);
+  });
+}
+
+/* Fill the request form's service list, narrowed to the preferred shop's offerings */
+async function renderServiceOptions(){
+  const sel=document.getElementById("fService"), hint=document.getElementById("svcHint");
+  const prev=sel.value;
+  const shopId=document.getElementById("fShop").value;
+  let offered=SERVICES, shopName="";
+  if(shopId){
+    const shops=await getShops();
+    const s=shops.find(x=>x.id===shopId);
+    if(s){ offered=SERVICES.filter(v=>v.c==="any"||s.cat.includes(v.c)); shopName=s.name; }
+  }
+  sel.querySelectorAll("option:not(:first-child)").forEach(o=>o.remove());
+  offered.forEach(v=>{
+    const o=document.createElement("option");o.textContent=v.n;sel.appendChild(o);
+  });
+  if(prev&&offered.some(v=>v.n===prev)) sel.value=prev;
+  else if(prev){ sel.selectedIndex=0; }
+  if(shopName){
+    hint.style.display="";
+    hint.textContent=(prev&&!offered.some(v=>v.n===prev))
+      ? `${shopName} doesn't offer "${prev}" — pick from what they do, or switch shops.`
+      : `Showing what ${shopName} offers.`;
+  } else { hint.style.display="none"; hint.textContent=""; }
+}
+document.getElementById("fShop").addEventListener("change",renderServiceOptions);
+
+/* =================== STYLE FINDER =================== */
+const answers={goal:null,time:null,last:null};
+document.querySelectorAll("#finderQuiz .opts").forEach(group=>{
+  group.addEventListener("click",e=>{
+    const o=e.target.closest(".opt"); if(!o) return;
+    group.querySelectorAll(".opt").forEach(x=>x.classList.remove("picked"));
+    o.classList.add("picked");
+    answers[group.dataset.q]=o.dataset.v;
+    document.getElementById("finderGo").disabled=!(answers.goal&&answers.time&&answers.last);
+  });
+});
+const TIME_RANK={short:1,medium:2,long:3};
+document.getElementById("finderGo").addEventListener("click",async()=>{
+  const shops=await getShops();
+  let matches=STYLES.filter(st=>st.goal===answers.goal);
+  let exact=matches.filter(st=>TIME_RANK[st.time]<=TIME_RANK[answers.time]&&st.last.includes(answers.last));
+  let shown=exact.length?exact:matches;
+  let note=exact.length?"":"<p class='notice'>Nothing in that category fits both your chair time and how long you want it to last — here's everything in the category so you can see the trade-offs.</p>";
+  const box=document.getElementById("finderResults");
+  box.innerHTML=note+shown.map(st=>{
+    const avail=st.shops.map(id=>shops.find(x=>x.id===id)).filter(Boolean);
+    const shopLinks=avail.length
+      ? avail.map(s=>`<a data-shop="${s.id}">${esc(s.name)} (~${s.mins} min)</a>`).join(" &middot; ")
+      : "Ask the DEIB office — no listed shop currently offers this.";
+    return `<div class="result-card">
+      <h3>${st.name}</h3>
+      <div class="result-meta">
+        <span class="meta-pill">🪑 ${st.chair}</span>
+        <span class="meta-pill">💵 ${st.price}</span>
+        <span class="meta-pill">🔁 ${st.upkeep}</span>
+      </div>
+      <p>${st.desc}</p>
+      <p class="goto"><b>Best bets near campus:</b> ${shopLinks}</p>
+    </div>`;
+  }).join("")+`<div class="finder-actions">
+    <button class="btn ghost" id="finderReset">Start over</button>
+    <button class="btn" id="finderToBoard">Post a trip request</button>
+  </div>`;
+  box.scrollIntoView({behavior:"smooth",block:"start"});
+  document.getElementById("finderReset").addEventListener("click",()=>{
+    box.innerHTML="";
+    document.querySelectorAll("#finderQuiz .opt").forEach(x=>x.classList.remove("picked"));
+    answers.goal=answers.time=answers.last=null;
+    document.getElementById("finderGo").disabled=true;
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
+  document.getElementById("finderToBoard").addEventListener("click",()=>{
+    document.querySelector('.tab-btn[data-tab="board"]').click();
+  });
+  box.querySelectorAll("a[data-shop]").forEach(a=>{
+    a.addEventListener("click",()=>{
+      document.querySelector('.tab-btn[data-tab="shops"]').click();
+      setTimeout(()=>openShopDetail(a.dataset.shop),120);
+    });
+  });
+});
+
+/* =================== STYLE BOARD (pins) =================== */
+const PIN_PREFIX="wra-pin-";
+let pinFilter="all";
+let pinCache=[];
+
+/* ---- Illustrated demo pins (original SVG art, shown until the office uploads real photos) ---- */
+function svgWrap(w,h,bg,inner){
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}"><rect width="${w}" height="${h}" fill="${bg}"/>${inner}</svg>`;
+  return "data:image/svg+xml;utf8,"+encodeURIComponent(svg);
+}
+function artFadeDots(bg,dot){ // fade = dot gradient, dense at top thinning down
+  let s="";
+  for(let row=0;row<14;row++){
+    const r=6.5-row*0.42, gap=26+row*3.2, y=30+row*34;
+    if(r<=0.4)break;
+    for(let x=20;x<380;x+=gap) s+=`<circle cx="${x+(row%2?gap/2:0)}" cy="${y}" r="${r.toFixed(1)}" fill="${dot}"/>`;
+  }
+  return s;
+}
+function artBlockTop(ink,dot){ // high top: bold block, faded sides
+  let s=`<rect x="70" y="36" width="260" height="190" rx="14" fill="${ink}"/>`;
+  for(let row=0;row<8;row++){
+    const r=5-row*0.55, y=260+row*30;
+    if(r<=0.5)break;
+    for(let x=90;x<320;x+=30) s+=`<circle cx="${x}" cy="${y}" r="${r.toFixed(1)}" fill="${dot}"/>`;
+  }
+  return s;
+}
+function artPlaits(ink,accent,n,thin){ // braids: columns of chevron plaits
+  let s="";
+  const w=thin?26:40, gap=thin?54:66;
+  for(let c=0;c<n;c++){
+    const x=34+c*gap;
+    for(let y=24;y<440;y+=w*0.9){
+      s+=`<path d="M${x} ${y} q${w/2} ${w*0.45} ${w} 0" fill="none" stroke="${c%2?accent:ink}" stroke-width="${thin?7:10}" stroke-linecap="round"/>`;
+    }
+    if(thin) s+=`<path d="M${x+w/2} 445 q14 26 -6 44 q-16 14 2 30" fill="none" stroke="${c%2?accent:ink}" stroke-width="6" stroke-linecap="round"/>`;
+  }
+  return s;
+}
+function artCornrows(ink,accent){ // curved parallel rows sweeping back
+  let s="";
+  for(let i=0;i<7;i++){
+    const off=i*52;
+    s+=`<path d="M-10 ${40+off} C 130 ${10+off}, 260 ${70+off}, 410 ${34+off}" fill="none" stroke="${i%2?accent:ink}" stroke-width="13" stroke-linecap="round"/>`;
+    s+=`<path d="M-10 ${40+off} C 130 ${10+off}, 260 ${70+off}, 410 ${34+off}" fill="none" stroke="${i%2?ink:accent}" stroke-width="4" stroke-dasharray="2 16" stroke-linecap="round"/>`;
+  }
+  return s;
+}
+function artTwists(ink,accent){ // two-strand helix pairs
+  let s="";
+  for(let c=0;c<5;c++){
+    const x=48+c*74;
+    for(let y=20;y<460;y+=44){
+      s+=`<path d="M${x-11} ${y} q11 11 22 22 M${x+11} ${y} q-11 11 -22 22" stroke="${c%2?accent:ink}" stroke-width="9" fill="none" stroke-linecap="round"/>`;
+    }
+  }
+  return s;
+}
+function artLocs(ink,accent){ // rope strands with segment ticks
+  let s="";
+  for(let c=0;c<6;c++){
+    const x=42+c*62, sway=(c%2?14:-14);
+    s+=`<path d="M${x} 16 q${sway} 120 0 240 q${-sway} 110 ${sway/2} 220" fill="none" stroke="${c%2?accent:ink}" stroke-width="16" stroke-linecap="round"/>`;
+    for(let y=44;y<460;y+=38) s+=`<line x1="${x-9+(c%2?y%14-7:0)}" y1="${y}" x2="${x+9}" y2="${y-8}" stroke="${c%2?ink:accent}" stroke-width="3.4"/>`;
+  }
+  return s;
+}
+function artSilk(ink,accent){ // long smooth S-curves
+  let s="";
+  for(let c=0;c<9;c++){
+    const x=26+c*42;
+    s+=`<path d="M${x} 10 C ${x+26} 140, ${x-26} 300, ${x+14} 470" fill="none" stroke="${c%3===1?accent:ink}" stroke-width="${c%3===1?6:9}" stroke-linecap="round" opacity="${c%3===2?0.55:1}"/>`;
+  }
+  return s;
+}
+function artCoils(ink,accent){ // curly definition: spiral coils
+  let s="";
+  for(let r=0;r<4;r++)for(let c=0;c<4;c++){
+    const x=58+c*96, y=60+r*112, col=(r+c)%2?accent:ink;
+    s+=`<path d="M${x} ${y} m-24 0 a24 24 0 1 1 48 0 a17 17 0 1 1 -34 0 a10 10 0 1 1 20 0" fill="none" stroke="${col}" stroke-width="7" stroke-linecap="round"/>`;
+  }
+  return s;
+}
+const ART={pine:"#14382A",shea:"#F6F0E4",amber:"#D9A44A",cocoa:"#5C4632",deep:"#0D261C",sage:"#DCE7DA",sand:"#F0E3C8"};
+const DEFAULT_PINS=[
+  {id:"demo1",isDemo:true,style:"Taper fade / lineup",shopId:"barbersden",shopName:"The Barbers Den",
+   title:"Illustration — the clean taper gradient",img:svgWrap(400,500,ART.deep,artFadeDots(ART.deep,ART.amber)),createdAt:8},
+  {id:"demo2",isDemo:true,style:"High top fade",shopId:"vault",shopName:"The Vault Barbershop",
+   title:"Illustration — height up top, faded sides",img:svgWrap(400,480,ART.shea,artBlockTop(ART.pine,ART.cocoa)),createdAt:7},
+  {id:"demo3",isDemo:true,style:"Box braids",shopId:"dee",shopName:"Dee African Hair Braiding",
+   title:"Illustration — structured box plaits",img:svgWrap(400,470,ART.sand,artPlaits(ART.pine,ART.cocoa,6,false)),createdAt:6},
+  {id:"demo4",isDemo:true,style:"Knotless braids",shopId:"christinas",shopName:"Christina's African Hair Braiding",
+   title:"Illustration — fine knotless with curled ends",img:svgWrap(400,540,ART.shea,artPlaits(ART.cocoa,ART.amber,7,true)),createdAt:5},
+  {id:"demo5",isDemo:true,style:"Cornrows / stitch braids",shopId:"texturehaus",shopName:"The Texture Haus",
+   title:"Illustration — swept-back stitch rows",img:svgWrap(400,420,ART.sage,artCornrows(ART.pine,ART.cocoa)),createdAt:4},
+  {id:"demo6",isDemo:true,style:"Two-strand twists",shopId:"eezytouch",shopName:"Eezytouch African Hair Braiding",
+   title:"Illustration — the two-strand pattern",img:svgWrap(400,490,ART.shea,artTwists(ART.pine,ART.amber)),createdAt:3},
+  {id:"demo7",isDemo:true,style:"Starter locs",shopId:"hobl",shopName:"House of Beautiful Locs",
+   title:"Illustration — loc strands and segments",img:svgWrap(400,510,ART.sand,artLocs(ART.cocoa,ART.pine)),createdAt:2},
+  {id:"demo8",isDemo:true,style:"Silk press",shopId:"silkystrands",shopName:"Silky Strands Salon & Spa",
+   title:"Illustration — the silk press swing",img:svgWrap(400,490,ART.deep,artSilk(ART.shea,ART.amber)),createdAt:1},
+  {id:"demo9",isDemo:true,style:"Curly cut / natural styling",shopId:"noiretblanc",shopName:"Noir et Blanc Salon",
+   title:"Illustration — defined coils",img:svgWrap(400,470,ART.sage,artCoils(ART.pine,ART.cocoa)),createdAt:0}
+];
+
+async function listPins(){
+  // in-memory fallback pins
+  const memPins=Object.keys(mem).filter(k=>k.startsWith(PIN_PREFIX)).map(k=>mem[k]);
+  try{
+    const r=await window.storage.list(PIN_PREFIX,true);
+    const keys=(r&&r.keys)?r.keys:[];
+    const fetched=await Promise.all(keys.map(async k=>{
+      try{ const g=await window.storage.get(k,true); return JSON.parse(g.value); }
+      catch(e){ return null; }
+    }));
+    const ids=new Set(fetched.filter(Boolean).map(p=>p.id));
+    return fetched.filter(Boolean).concat(memPins.filter(p=>!ids.has(p.id)))
+      .sort((a,b)=>b.createdAt-a.createdAt);
+  }catch(e){ return memPins.sort((a,b)=>b.createdAt-a.createdAt); }
+}
+async function savePin(pin){
+  const key=PIN_PREFIX+pin.id;
+  mem[key]=pin;
+  try{
+    const r=await window.storage.set(key,JSON.stringify(pin),true);
+    if(!r) throw new Error("no result");
+    delete mem[key]; return true;
+  }catch(e){ return false; }
+}
+async function deletePin(id){
+  const key=PIN_PREFIX+id;
+  delete mem[key];
+  try{ await window.storage.delete(key,true); }catch(e){}
+}
+
+function fileToDataUrl(file){return new Promise((res,rej)=>{
+  const r=new FileReader(); r.onload=()=>res(r.result); r.onerror=()=>rej(new Error("read failed")); r.readAsDataURL(file);
+});}
+function compressImage(dataUrl,max=900,q=0.82){return new Promise((res,rej)=>{
+  const img=new Image();
+  img.onload=()=>{
+    let w=img.width,h=img.height;
+    const sc=Math.min(1,max/Math.max(w,h));
+    w=Math.max(1,Math.round(w*sc)); h=Math.max(1,Math.round(h*sc));
+    const c=document.createElement("canvas"); c.width=w; c.height=h;
+    c.getContext("2d").drawImage(img,0,0,w,h);
+    res(c.toDataURL("image/jpeg",q));
+  };
+  img.onerror=()=>rej(new Error("not an image"));
+  img.src=dataUrl;
+});}
+function styleCat(styleName){
+  const s=SERVICES.find(x=>x.n===styleName);
+  return s?s.c:"any";
+}
+
+async function refreshPins(){
+  const real=await listPins();
+  pinCache=real.length?real:DEFAULT_PINS;
+  renderPins();
+  // office-only upload form
+  document.getElementById("pinFormWrap").style.display=unlocked?"":"none";
+  // populate form selects
+  if(unlocked){
+    const ps=document.getElementById("pinStyle");
+    if(ps.options.length<=1){
+      SERVICES.filter(s=>s.c!=="any").forEach(s=>{const o=document.createElement("option");o.textContent=s.n;ps.appendChild(o);});
+    }
+    const psh=document.getElementById("pinShop");
+    const shops=await getShops();
+    psh.querySelectorAll("option:not(:first-child)").forEach(o=>o.remove());
+    shops.forEach(s=>{const o=document.createElement("option");o.value=s.id;o.textContent=`${s.name} (${s.area})`;psh.appendChild(o);});
+  }
+}
+function renderPins(){
+  const board=document.getElementById("pinBoard"), empty=document.getElementById("pinEmpty");
+  let list=pinCache;
+  if(pinFilter!=="all") list=list.filter(p=>styleCat(p.style)===pinFilter);
+  const demoMode=pinCache.length&&pinCache[0].isDemo;
+  board.innerHTML=(demoMode&&list.length?`<div class="notice" style="column-span:all;margin-bottom:14px">These are illustrated placeholders so you can see how the board works — not real photos. Once the DEIB office pins its first real shop photo, the illustrations step aside automatically.</div>`:"")+list.map(p=>`
+    <figure class="pin" data-pin="${p.id}" role="button" tabindex="0" aria-label="Inspect ${esc(p.title||p.style)}">
+      <img src="${p.img}" alt="${esc(p.title||p.style)}" loading="lazy">
+      <figcaption class="pin-cap">
+        <div class="p-style">${esc(p.style)}${p.isDemo?" · illustration":""}</div>
+        ${p.title?`<div class="p-title">${esc(p.title)}</div>`:""}
+        <div class="p-shop">📍 ${p.isDemo?"Recommended: ":""}${esc(p.shopName||"")}</div>
+      </figcaption>
+    </figure>`).join("");
+  empty.innerHTML=list.length?"":`<div class="empty" style="margin-top:6px">${
+    pinFilter!=="all"?"No photos in this category yet.":
+    "The board is empty so far. The DEIB office adds photos from their dashboard sign-in — a great BSU project is collecting each shop's best work (with their permission) to fill this out."
+  }</div>`;
+  board.querySelectorAll("[data-pin]").forEach(f=>{
+    f.addEventListener("click",()=>openLightbox(f.dataset.pin));
+    f.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openLightbox(f.dataset.pin);}});
+  });
+}
+document.getElementById("pinFilters").addEventListener("click",e=>{
+  const c=e.target.closest(".chip"); if(!c)return;
+  document.querySelectorAll("#pinFilters .chip").forEach(x=>x.classList.remove("on"));
+  c.classList.add("on"); pinFilter=c.dataset.pf; renderPins();
+});
+
+document.getElementById("pinBtn").addEventListener("click",async()=>{
+  const fileEl=document.getElementById("pinFile");
+  const style=document.getElementById("pinStyle").value;
+  const shopId=document.getElementById("pinShop").value;
+  if(!fileEl.files||!fileEl.files[0]){ toast("pinToast","Choose a photo first.",true); return; }
+  if(!style||!shopId){ toast("pinToast","Pick the style and the shop the work belongs to.",true); return; }
+  const btn=document.getElementById("pinBtn");
+  btn.disabled=true; btn.textContent="Pinning…";
+  try{
+    const raw=await fileToDataUrl(fileEl.files[0]);
+    const img=await compressImage(raw);
+    if(img.length>4500000) throw new Error("Even after resizing, that photo is too large — try a smaller one.");
+    const shops=await getShops();
+    const shop=shops.find(s=>s.id===shopId);
+    const pin={
+      id:"p"+Date.now()+Math.random().toString(36).slice(2,5),
+      img, style, shopId,
+      shopName:shop?shop.name:"",
+      title:document.getElementById("pinTitle").value.trim(),
+      createdAt:Date.now()
+    };
+    const ok=await savePin(pin);
+    toast("pinToast", ok?"Pinned! It's live on the board for everyone."
+      :"Couldn't reach shared storage — the pin shows for this session only.", !ok);
+    fileEl.value=""; document.getElementById("pinTitle").value="";
+    refreshPins();
+  }catch(err){
+    toast("pinToast",err.message||"That file couldn't be read as an image.",true);
+  }
+  btn.disabled=false; btn.textContent="Pin it to the board";
+});
+
+/* --- Lightbox: inspect a pin --- */
+function openLightbox(id){
+  const p=pinCache.find(x=>x.id===id); if(!p)return;
+  const lb=document.createElement("div");
+  lb.className="lightbox";
+  lb.innerHTML=`
+    <button class="lb-close" aria-label="Close">✕</button>
+    <div class="lb-inner">
+      <div class="lb-imgwrap"><img src="${p.img}" alt="${esc(p.title||p.style)}" title="Click to zoom"></div>
+      <div class="lb-info">
+        <div class="lb-text">
+          <div class="p-style">${esc(p.style)}</div>
+          <h3>${esc(p.title||p.style)}</h3>
+          <div class="lb-shopline">${p.isDemo
+            ?`Illustrated example — not a shop's own photo. A good place for this style: ${esc(p.shopName||"see the guide")}.`
+            :`Done by ${esc(p.shopName||"a shop in the guide")} · click the photo to zoom in`}</div>
+        </div>
+        <div class="lb-actions">
+          <button class="btn small" data-lbshop="${esc(p.shopId)}">Go to shop page →</button>
+          ${(unlocked&&!p.isDemo)?`<button class="mini" data-lbdel="${p.id}">Remove pin</button>`:""}
+        </div>
+      </div>
+    </div>`;
+  document.body.appendChild(lb);
+  document.body.style.overflow="hidden";
+  const close=()=>{ lb.remove(); document.body.style.overflow=""; document.removeEventListener("keydown",escClose); };
+  const escClose=e=>{ if(e.key==="Escape") close(); };
+  document.addEventListener("keydown",escClose);
+  lb.querySelector(".lb-close").addEventListener("click",close);
+  lb.addEventListener("click",e=>{ if(e.target===lb) close(); });
+  const img=lb.querySelector(".lb-imgwrap img");
+  img.addEventListener("click",()=>img.classList.toggle("zoomed"));
+  lb.querySelector("[data-lbshop]").addEventListener("click",async()=>{
+    const shopId=p.shopId;
+    const shops=await getShops();
+    close();
+    if(shops.some(s=>s.id===shopId)){
+      document.querySelector('.tab-btn[data-tab="shops"]').click();
+      setTimeout(()=>openShopDetail(shopId),120);
+    } else {
+      document.querySelector('.tab-btn[data-tab="shops"]').click();
+      toast("suggToast","That shop is no longer in the directory — here's everything current.",true);
+    }
+  });
+  const del=lb.querySelector("[data-lbdel]");
+  if(del) del.addEventListener("click",()=>confirm2(del,async()=>{
+    await deletePin(p.id);
+    close();
+    refreshPins();
+  }));
+}
+
+/* =================== STUDENT BOARD =================== */
+function shopNameSync(shops,id){const s=shops.find(x=>x.id===id);return s?`${s.name} (${s.area})`:"No preference";}
+function tripLabelSync(shops,trip){
+  if(!trip)return "";
+  if(trip.dest.startsWith("shop:")){const s=shops.find(x=>x.id===trip.dest.slice(5));return s?s.name:"Trip";}
+  return trip.dest.slice(5)+" area";
+}
+function statusLabel(st){return st==="requested"?"Waiting":st==="scheduled"?"Trip scheduled":"Done";}
+
+async function refreshBoard(){
+  const [reqs,shops,trips]=await Promise.all([getReqs(),getShops(),getTrips()]);
+  // student trips
+  const upTrips=trips.filter(t=>!t.completed).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+  const st=document.getElementById("studentTrips");
+  st.innerHTML=upTrips.length?upTrips.map(t=>{
+    const riders=reqs.filter(r=>r.tripId===t.id&&r.status!=="done");
+    const seatsLeft=t.seats-riders.length;
+    const cats=tripCats(shops,t);
+    const offered=cats?SERVICES.filter(s=>s.c==="any"||cats.includes(s.c)):SERVICES;
+    const svcOpts=offered.map(s=>`<option>${s.n}</option>`).join("");
+    const offerNote=cats?`This destination does ${cats.map(c=>CAT_LABEL[c]||c).join(" · ")}`:"";
+    return `<div class="trip-card">
+      <h4>🚐 ${esc(tripLabelSync(shops,t))}</h4>
+      <div class="trip-meta">${fmtTripDate(t.date,t.time)} &middot; ${riders.length}/${t.seats} seats filled${t.note?` &middot; ${esc(t.note)}`:""}</div>
+      ${riders.length?`<ul>${riders.map(r=>`<li>${esc(r.name)} — ${esc(r.service)}</li>`).join("")}</ul>`:`<ul><li>Seats open — be the first to join.</li></ul>`}
+      ${seatsLeft>0?`
+        <div class="trip-actions"><button class="mini pine" data-jointoggle="${t.id}">Join this trip (${seatsLeft} seat${seatsLeft>1?"s":""} left)</button></div>
+        <div id="joinform-${t.id}" style="display:none;margin-top:12px;border-top:1px solid var(--line);padding-top:12px">
+          ${offerNote?`<p class="hint" style="margin:0 0 10px">✂️ ${offerNote} — that's why the list below is trimmed.</p>`:""}
+          <div class="two-col">
+            <div class="field" style="margin-bottom:10px">
+              <label for="jn-${t.id}">Name (or initials)</label>
+              <input id="jn-${t.id}" maxlength="60" placeholder="e.g., Jordan M. &rsquo;27">
+            </div>
+            <div class="field" style="margin-bottom:10px">
+              <label for="js-${t.id}">What are you getting?</label>
+              <select id="js-${t.id}"><option value="" disabled selected>Choose&hellip;</option>${svcOpts}</select>
+            </div>
+          </div>
+          <button class="btn small" type="button" data-join="${t.id}">Claim my seat</button>
+        </div>`
+      :`<div class="trip-actions"><span class="status scheduled">Van is full — post a request below for the next run</span></div>`}
+    </div>`;
+  }).join(""):`<div class="empty">No trips scheduled yet. Post a request below and the office will plan one.</div>`;
+  st.querySelectorAll("[data-jointoggle]").forEach(b=>b.addEventListener("click",()=>{
+    const f=document.getElementById("joinform-"+b.dataset.jointoggle);
+    f.style.display=f.style.display==="none"?"":"none";
+  }));
+  st.querySelectorAll("[data-join]").forEach(b=>b.addEventListener("click",async()=>{
+    const tid=b.dataset.join;
+    const name=document.getElementById("jn-"+tid).value.trim();
+    const service=document.getElementById("js-"+tid).value;
+    if(!name||!service){ toast("toast","Add your name and pick a service to claim a seat.",true); return; }
+    b.disabled=true; b.textContent="Claiming…";
+    // re-read fresh data so we don't oversell seats
+    const [freshReqs,freshTrips,freshShops]=await Promise.all([getReqs(),getTrips(),getShops()]);
+    const trip=freshTrips.find(x=>x.id===tid&&!x.completed);
+    if(!trip){ toast("toast","That trip was just cancelled — post a request instead.",true); refreshBoard(); return; }
+    const taken=freshReqs.filter(r=>r.tripId===tid&&r.status!=="done").length;
+    if(taken>=trip.seats){ toast("toast","Sorry — the last seat was just claimed. Post a request and the office will plan another run.",true); refreshBoard(); return; }
+    freshReqs.push({
+      id:"r"+Date.now()+Math.random().toString(36).slice(2,6),
+      name, service,
+      shopId:trip.dest.startsWith("shop:")?trip.dest.slice(5):"",
+      timing:"Joined scheduled trip",
+      notes:"", status:"scheduled", tripId:tid, createdAt:Date.now()
+    });
+    const ok=await sSet(K_REQ,freshReqs);
+    toast("toast", ok?"You're on the trip! Your seat shows on the list — the office will see you're riding."
+      :"Couldn't reach shared storage, so your seat may not be saved for the office. Try again inside Claude.", !ok);
+    refreshBoard();
+  }));
+  // open requests (cached so the search box can filter without refetching)
+  boardCache={reqs,shops,trips};
+  renderStudentReqList();
+}
+let boardCache=null;
+function renderStudentReqList(){
+  if(!boardCache) return;
+  const {reqs,shops,trips}=boardCache;
+  const el=document.getElementById("studentList");
+  const q=document.getElementById("trackName").value.trim().toLowerCase();
+  let open=reqs.filter(r=>r.status!=="done").sort((a,b)=>b.createdAt-a.createdAt);
+  if(q) open=open.filter(r=>r.name.toLowerCase().includes(q));
+  if(!open.length){
+    el.innerHTML=q?`<div class="empty">No open request under "${esc(q)}". Check the spelling you posted with — or your request may already be marked done.</div>`
+      :`<div class="empty">No open requests yet. Be the first — post above and the DEIB office will see it.</div>`;
+    return;
+  }
+  el.innerHTML=open.map(r=>{
+    const trip=r.tripId?trips.find(t=>t.id===r.tripId&&!t.completed):null;
+    return `<div class="req-item">
+      <div class="req-main">
+        <div class="who">${esc(r.name)}</div>
+        <div class="what">${esc(r.service)} &middot; ${shopNameSync(shops,r.shopId)}</div>
+        <div class="when">${esc(r.timing)} &middot; posted ${fmtDate(r.createdAt)}${r.notes?" &middot; “"+esc(r.notes)+"”":""}</div>
+        ${trip?`<div class="when" style="color:#2C5B8A;font-weight:600">🚐 On the ${esc(tripLabelSync(shops,trip))} trip — ${fmtTripDate(trip.date,trip.time)}${trip.note?" · "+esc(trip.note):""}</div>`:""}
+      </div>
+      <span class="status ${r.status}">${statusLabel(r.status)}</span>
+    </div>`;
+  }).join("");
+}
+document.getElementById("trackName").addEventListener("input",renderStudentReqList);
+document.getElementById("refreshStudent").addEventListener("click",refreshBoard);
+
+document.getElementById("reqBtn").addEventListener("click",async()=>{
+  const name=document.getElementById("fName").value.trim();
+  const service=document.getElementById("fService").value;
+  const timing=document.getElementById("fTiming").value;
+  if(!name||!service||!timing){ toast("toast","Fill in your name, the service, and how soon.",true); return; }
+  const btn=document.getElementById("reqBtn");
+  btn.disabled=true;btn.textContent="Posting…";
+  const req={
+    id:"r"+Date.now()+Math.random().toString(36).slice(2,6),
+    name, service,
+    shopId:document.getElementById("fShop").value,
+    timing,
+    notes:document.getElementById("fNotes").value.trim(),
+    status:"requested", tripId:"", createdAt:Date.now()
+  };
+  const list=await getReqs(); list.push(req);
+  const ok=await sSet(K_REQ,list);
+  toast("toast", ok?"Posted! The DEIB office will see your request on the board."
+    :"Saved for this session only — shared storage isn't available here, so the office may not see it. Try again inside Claude, or email the office directly.", !ok);
+  document.getElementById("reqForm").reset();
+  renderServiceOptions();
+  btn.disabled=false;btn.textContent="Post my request";
+  refreshBoard();
+});
+
+/* =================== ADMIN: GATE =================== */
+async function openAdminTab(){
+  const setup=document.getElementById("gateSetup"), login=document.getElementById("gateLogin"), dash=document.getElementById("dashboard");
+  setup.style.display=login.style.display=dash.style.display="none";
+  if(unlocked){ dash.style.display=""; refreshAdmin(); return; }
+  const rec=await sGet(K_ADMIN,null);
+  if(rec&&rec.hash){ login.style.display=""; }
+  else{ setup.style.display=""; }
+}
+document.getElementById("setupBtn").addEventListener("click",async()=>{
+  const p1=document.getElementById("setup1").value, p2=document.getElementById("setup2").value;
+  if(p1.length<4){ toast("gateToast","Passcode needs at least 4 characters.",true); return; }
+  if(p1!==p2){ toast("gateToast","Passcodes don't match — try again.",true); return; }
+  const existing=await sGet(K_ADMIN,null);
+  if(existing&&existing.hash){ toast("gateToast","A passcode was just set on another device. Reload and sign in with it.",true); openAdminTab(); return; }
+  const ok=await sSet(K_ADMIN,{hash:await hashText(p1),setAt:Date.now()});
+  if(!ok){ toast("gateToast","Shared storage isn't available here, so a passcode can't be saved. The dashboard will open for this session only.",true); }
+  unlocked=true; document.getElementById("setupForm").reset(); openAdminTab();
+});
+document.getElementById("loginBtn").addEventListener("click",async()=>{
+  const val=document.getElementById("loginPass").value;
+  if(!val){ toast("gateToast","Enter the office passcode.",true); return; }
+  const rec=await sGet(K_ADMIN,null);
+  const h=await hashText(val);
+  if(rec&&rec.hash===h){ unlocked=true; document.getElementById("loginForm").reset(); openAdminTab(); }
+  else toast("gateToast","That passcode doesn't match.",true);
+});
+document.getElementById("loginPass").addEventListener("keydown",e=>{
+  if(e.key==="Enter"){e.preventDefault();document.getElementById("loginBtn").click();}
+});
+document.getElementById("lockBtn").addEventListener("click",()=>{ unlocked=false; openAdminTab(); window.scrollTo({top:0}); });
+document.getElementById("passBtn").addEventListener("click",async()=>{
+  const oldV=document.getElementById("pOld").value, newV=document.getElementById("pNew").value;
+  if(newV.length<4){ toast("adminToast","New passcode needs at least 4 characters.",true); return; }
+  const rec=await sGet(K_ADMIN,null);
+  const oldH=await hashText(oldV);
+  if(!rec||rec.hash!==oldH){ toast("adminToast","Current passcode is wrong.",true); return; }
+  await sSet(K_ADMIN,{hash:await hashText(newV),setAt:Date.now()});
+  document.getElementById("passForm").reset(); toast("adminToast","Passcode updated for all staff.");
+});
+
+/* =================== ADMIN: DASHBOARD =================== */
+const AREA_GROUP={
+  "Hudson (in town!)":"Hudson","Stow":"Stow (~15 min)","Twinsburg":"Twinsburg cluster (~12 min)",
+  "Akron":"Akron (~25 min)","Downtown Akron":"Akron (~25 min)","Akron (Darrow Rd)":"Akron (~25 min)","West Akron":"Akron (~25 min)",
+  "Maple Heights":"Maple Hts / Bedford Hts (~20 min)","Bedford Heights":"Maple Hts / Bedford Hts (~20 min)"
+};
+async function refreshAdmin(){
+  if(!unlocked) return;
+  const [reqs,shops,trips,suggs]=await Promise.all([getReqs(),getShops(),getTrips(),getSuggs()]);
+  renderPlanSummary(reqs,shops);
+  renderAdminTrips(reqs,shops,trips);
+  renderAdminList(reqs,shops,trips);
+  renderSuggs(suggs);
+  renderShopAdmin(shops);
+}
+
+function renderSuggs(suggs){
+  const el=document.getElementById("suggList");
+  if(!suggs.length){el.innerHTML=`<div class="empty">No suggestions right now. Students can send them from the bottom of the Find a Shop tab.</div>`;return;}
+  el.innerHTML=suggs.slice().sort((a,b)=>b.createdAt-a.createdAt).map(g=>`
+    <div class="req-item">
+      <div class="req-main">
+        <div class="who">${esc(g.name)}${g.area?` <span style="font-weight:400;color:var(--cocoa)">· ${esc(g.area)}</span>`:""}</div>
+        <div class="what">${esc(g.does)}${g.phone?` &middot; ${esc(g.phone)}`:""}</div>
+        <div class="when">${g.why?"“"+esc(g.why)+"” &middot; ":""}suggested ${g.by?"by "+esc(g.by)+" ":""}${fmtDate(g.createdAt)}</div>
+      </div>
+      <div class="req-admin">
+        <button class="mini pine" data-approve="${g.id}">Prefill add form</button>
+        <button class="mini" data-dismiss="${g.id}">Dismiss</button>
+      </div>
+    </div>`).join("");
+  el.querySelectorAll("[data-approve]").forEach(b=>b.addEventListener("click",async()=>{
+    const suggs=await getSuggs();
+    const g=suggs.find(x=>x.id===b.dataset.approve); if(!g)return;
+    document.getElementById("sName").value=g.name;
+    document.getElementById("sArea").value=g.area||"";
+    document.getElementById("sPhone").value=g.phone||"";
+    document.getElementById("sBlurb").value=(g.does+(g.why?" — "+g.why:"")).slice(0,180);
+    pendingSuggId=g.id;
+    toast("adminToast","Suggestion loaded into the add-shop form below — verify details and drive time, then add it.");
+    document.getElementById("addShopForm").scrollIntoView({behavior:"smooth",block:"start"});
+  }));
+  el.querySelectorAll("[data-dismiss]").forEach(b=>b.addEventListener("click",()=>confirm2(b,async()=>{
+    let suggs=await getSuggs();
+    suggs=suggs.filter(x=>x.id!==b.dataset.dismiss);
+    await sSet(K_SUGG,suggs);
+    toast("adminToast","Suggestion dismissed.");
+    refreshAdmin();
+  })));
+}
+document.getElementById("refreshAdmin").addEventListener("click",refreshAdmin);
+
+function renderPlanSummary(reqs,shops){
+  const el=document.getElementById("planSummary");
+  const open=reqs.filter(r=>r.status==="requested");
+  if(!open.length){el.innerHTML=`<h3>Trip planner</h3><p style="font-size:.88rem">No one is waiting right now.</p>`;return;}
+  const counts={};
+  open.forEach(r=>{
+    const s=shops.find(x=>x.id===r.shopId);
+    const key=s?(AREA_GROUP[s.area]||s.area):"No shop preference — fits any trip";
+    counts[key]=(counts[key]||0)+1;
+  });
+  const urgent=open.filter(r=>r.timing.startsWith("This week")).length;
+  el.innerHTML=`<h3>Trip planner — ${open.length} student${open.length>1?"s":""} waiting${urgent?`, <b>${urgent} need this week</b>`:""}</h3>`+
+    Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([area,n])=>
+      `<div class="plan-row"><span>${esc(area)}</span><b>${n} student${n>1?"s":""}</b></div>`).join("")+
+    `<p style="font-size:.78rem;margin-top:12px;opacity:.85">Tip: one van run can cover a whole cluster. Twinsburg's three shops share a parking lot; the Northfield Rd shops in Maple/Bedford Hts are within 3 minutes of each other.</p>`;
+}
+
+/* --- Trips --- */
+document.getElementById("tripBtn").addEventListener("click",async()=>{
+  if(!document.getElementById("tDate").value||!document.getElementById("tTime").value||!document.getElementById("tDest").value){
+    toast("adminToast","Pick a date, departure time, and destination.",true); return;
+  }
+  const trip={
+    id:"t"+Date.now()+Math.random().toString(36).slice(2,6),
+    date:document.getElementById("tDate").value,
+    time:document.getElementById("tTime").value,
+    dest:document.getElementById("tDest").value,
+    seats:parseInt(document.getElementById("tSeats").value,10)||7,
+    note:document.getElementById("tNote").value.trim(),
+    completed:false, createdAt:Date.now()
+  };
+  const trips=await getTrips(); trips.push(trip);
+  const ok=await sSet(K_TRIPS,trips);
+  toast("adminToast", ok?"Trip created — assign students to it below.":"Couldn't save to shared storage; trip exists for this session only.", !ok);
+  document.getElementById("tripForm").reset(); document.getElementById("tSeats").value=7;
+  refreshAdmin();
+});
+function renderAdminTrips(reqs,shops,trips){
+  const el=document.getElementById("adminTrips");
+  const active=trips.filter(t=>!t.completed).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+  if(!active.length){el.innerHTML=`<div class="empty">No trips on the calendar. Create one above, then assign waiting students to it.</div>`;return;}
+  el.innerHTML=active.map(t=>{
+    const riders=reqs.filter(r=>r.tripId===t.id&&r.status!=="done");
+    return `<div class="trip-card">
+      <h4>🚐 ${esc(tripLabelSync(shops,t))}</h4>
+      <div class="trip-meta">${fmtTripDate(t.date,t.time)} &middot; ${riders.length}/${t.seats} seats${t.note?` &middot; ${esc(t.note)}`:""}</div>
+      ${riders.length?`<ul>${riders.map(r=>`<li>${esc(r.name)} — ${esc(r.service)} (${shopNameSync(shops,r.shopId)})</li>`).join("")}</ul>`:`<ul><li>No riders assigned yet.</li></ul>`}
+      <div class="trip-actions">
+        <button class="mini pine" data-email="${t.id}">📧 Email announcement</button>
+        <button class="mini pine" data-complete="${t.id}">Mark trip complete</button>
+        <button class="mini" data-deltrip="${t.id}">Cancel trip</button>
+      </div>
+      <div class="email-box" id="emailbox-${t.id}" style="display:none">
+        <label>Subject</label>
+        <input readonly id="emailsubj-${t.id}">
+        <label>Body</label>
+        <textarea readonly id="emailbody-${t.id}"></textarea>
+        <div class="trip-actions">
+          <button class="btn small" type="button" data-copyemail="${t.id}">Copy email</button>
+        </div>
+      </div>
+    </div>`;
+  }).join("");
+  el.querySelectorAll("[data-email]").forEach(b=>b.addEventListener("click",async()=>{
+    const box=document.getElementById("emailbox-"+b.dataset.email);
+    if(box.style.display!=="none"){ box.style.display="none"; return; }
+    const [reqs2,shops2,trips2]=await Promise.all([getReqs(),getShops(),getTrips()]);
+    const t=trips2.find(x=>x.id===b.dataset.email); if(!t)return;
+    const riders=reqs2.filter(r=>r.tripId===t.id&&r.status!=="done");
+    const seatsLeft=t.seats-riders.length;
+    const label=tripLabelSync(shops2,t);
+    let destShops=[];
+    if(t.dest.startsWith("shop:")){ const s=shops2.find(x=>x.id===t.dest.slice(5)); if(s)destShops=[s]; }
+    else destShops=shops2.filter(s=>s.area===t.dest.slice(5));
+    const shopLines=destShops.map(s=>`  • ${s.name} — ${(s.cat||[]).map(c=>CAT_LABEL[c]||c).join(", ")}${s.price?` (${s.price})`:""}`).join("\n");
+    document.getElementById("emailsubj-"+t.id).value=`Hair trip: ${label} — ${fmtTripDate(t.date,t.time)}`;
+    document.getElementById("emailbody-"+t.id).value=
+`Hi everyone,
+
+The DEIB office has a van trip scheduled for hair appointments:
+
+📍 Destination: ${label}
+🗓 When: ${fmtTripDate(t.date,t.time)}
+🚐 Seats: ${seatsLeft>0?seatsLeft+" of "+t.seats+" still open":"currently full — join the board for the next run"}
+${t.note?"📝 Note: "+t.note+"\n":""}${shopLines?"\nWhere we're going:\n"+shopLines+"\n":""}
+To claim a seat, open the Crown Guide, go to the Trip Board tab, and tap "Join this trip." Seats are first come, first served. If you need braiding hair or a deposit for your shop, handle that before the trip — details are on each shop's card in the guide.
+
+Questions? Stop by the DEIB office.
+
+— WRA DEIB Office`;
+    box.style.display="";
+  }));
+  el.querySelectorAll("[data-copyemail]").forEach(b=>b.addEventListener("click",async()=>{
+    const tid=b.dataset.copyemail;
+    const text="Subject: "+document.getElementById("emailsubj-"+tid).value+"\n\n"+document.getElementById("emailbody-"+tid).value;
+    let copied=false;
+    try{ await navigator.clipboard.writeText(text); copied=true; }
+    catch(e){
+      // fallback for sandboxes that block the clipboard API
+      const ta=document.getElementById("emailbody-"+tid);
+      ta.focus(); ta.select();
+      try{ copied=document.execCommand("copy"); }catch(e2){}
+    }
+    toast("adminToast", copied?"Email copied — paste it into Outlook/Gmail and send to your student list."
+      :"Couldn't auto-copy in this browser — the text is selected below, press Ctrl/Cmd+C.", !copied);
+  }));
+  el.querySelectorAll("[data-complete]").forEach(b=>b.addEventListener("click",async()=>{
+    const [reqs,trips]=await Promise.all([getReqs(),getTrips()]);
+    const t=trips.find(x=>x.id===b.dataset.complete); if(t)t.completed=true;
+    reqs.forEach(r=>{if(r.tripId===b.dataset.complete&&r.status==="scheduled")r.status="done";});
+    await sSet(K_TRIPS,trips); await sSet(K_REQ,reqs);
+    toast("adminToast","Trip completed — its riders were marked done.");
+    refreshAdmin();
+  }));
+  el.querySelectorAll("[data-deltrip]").forEach(b=>b.addEventListener("click",()=>confirm2(b,async()=>{
+    let [reqs,trips]=await Promise.all([getReqs(),getTrips()]);
+    trips=trips.filter(x=>x.id!==b.dataset.deltrip);
+    reqs.forEach(r=>{if(r.tripId===b.dataset.deltrip){r.tripId="";if(r.status==="scheduled")r.status="requested";}});
+    await sSet(K_TRIPS,trips); await sSet(K_REQ,reqs);
+    toast("adminToast","Trip cancelled — its riders went back to Waiting.");
+    refreshAdmin();
+  })));
+}
+
+/* --- Requests --- */
+function renderAdminList(reqs,shops,trips){
+  const el=document.getElementById("adminList");
+  const activeTrips=trips.filter(t=>!t.completed);
+  const sorted=reqs.slice().sort((a,b)=>{
+    const rank={requested:0,scheduled:1,done:2};
+    return rank[a.status]-rank[b.status]||b.createdAt-a.createdAt;
+  });
+  if(!sorted.length){el.innerHTML=`<div class="empty">No requests on the board.</div>`;return;}
+  el.innerHTML=sorted.map(r=>{
+    const tripOpts=`<option value="">— assign to trip —</option>`+activeTrips.map(t=>{
+      const label=tripLabelSync(shops,t)+" · "+fmtTripDate(t.date,t.time);
+      return `<option value="${t.id}" ${r.tripId===t.id?"selected":""}>${esc(label)}</option>`;
+    }).join("");
+    return `<div class="req-item">
+      <div class="req-main">
+        <div class="who">${esc(r.name)} <span class="status ${r.status}" style="margin-left:6px">${statusLabel(r.status)}</span></div>
+        <div class="what">${esc(r.service)} &middot; ${shopNameSync(shops,r.shopId)}</div>
+        <div class="when">${esc(r.timing)} &middot; posted ${fmtDate(r.createdAt)}${r.notes?" &middot; “"+esc(r.notes)+"”":""}</div>
+      </div>
+      <div class="req-admin">
+        <select data-assign="${r.id}" aria-label="Assign to trip">${tripOpts}</select>
+        ${r.status!=="done"?`<button class="mini pine" data-done="${r.id}">Mark done</button>`:""}
+        <button class="mini" data-del="${r.id}">Remove</button>
+      </div>
+    </div>`;
+  }).join("");
+  el.querySelectorAll("[data-assign]").forEach(s=>s.addEventListener("change",async()=>{
+    const reqs=await getReqs();
+    const item=reqs.find(x=>x.id===s.dataset.assign);
+    if(item){
+      item.tripId=s.value;
+      item.status=s.value?"scheduled":(item.status==="scheduled"?"requested":item.status);
+      await sSet(K_REQ,reqs);
+      refreshAdmin();
+    }
+  }));
+  el.querySelectorAll("[data-done]").forEach(b=>b.addEventListener("click",async()=>{
+    const reqs=await getReqs();
+    const item=reqs.find(x=>x.id===b.dataset.done);
+    if(item){item.status="done";await sSet(K_REQ,reqs);refreshAdmin();}
+  }));
+  el.querySelectorAll("[data-del]").forEach(b=>b.addEventListener("click",()=>confirm2(b,async()=>{
+    let reqs=await getReqs();
+    reqs=reqs.filter(x=>x.id!==b.dataset.del);
+    await sSet(K_REQ,reqs);
+    toast("adminToast","Request removed from the board.");
+    refreshAdmin();
+  })));
+}
+
+/* --- Shop management --- */
+let pendingSuggId=null;
+function renderShopAdmin(shops){
+  const el=document.getElementById("shopAdminList");
+  el.innerHTML=shops.map(s=>`
+    <div class="shop-row">
+      <div class="sr-main"><b>${esc(s.name)}</b> &middot; ${esc(s.area)} &middot; ~${s.mins} min<br>
+        <small>${(s.cat||[]).join(", ")} &middot; ${esc(s.phone)}</small></div>
+      <button class="mini" data-rmshop="${s.id}">Remove</button>
+    </div>`).join("");
+  el.querySelectorAll("[data-rmshop]").forEach(b=>b.addEventListener("click",()=>confirm2(b,async()=>{
+    let shops=await getShops();
+    shops=shops.filter(x=>x.id!==b.dataset.rmshop);
+    await sSet(K_SHOPS,shops);
+    toast("adminToast","Shop removed from the directory.");
+    populateShopSelects(); refreshAdmin(); renderShops(currentFilter);
+  })));
+}
+const pickedCats=new Set();
+document.querySelectorAll(".catpick").forEach(b=>b.addEventListener("click",()=>{
+  b.classList.toggle("picked");
+  b.classList.contains("picked")?pickedCats.add(b.dataset.c):pickedCats.delete(b.dataset.c);
+}));
+document.getElementById("addShopBtn").addEventListener("click",async()=>{
+  const reqd=["sName","sArea","sMins","sPhone","sAddr","sBlurb"];
+  if(reqd.some(id=>!document.getElementById(id).value.trim())){
+    toast("adminToast","Fill in name, area, drive time, phone, address, and the description.",true); return;
+  }
+  if(!pickedCats.size){ toast("adminToast","Pick at least one category for the shop.",true); return; }
+  const shop={
+    id:"s"+Date.now()+Math.random().toString(36).slice(2,5),
+    name:document.getElementById("sName").value.trim(),
+    area:document.getElementById("sArea").value.trim(),
+    mins:parseInt(document.getElementById("sMins").value,10)||15,
+    addr:document.getElementById("sAddr").value.trim(),
+    phone:document.getElementById("sPhone").value.trim(),
+    rating:document.getElementById("sRating").value.trim(),
+    price:document.getElementById("sPrice").value.trim(),
+    count:0,
+    cat:[...pickedCats],
+    tags:document.getElementById("sTags").value.split(",").map(t=>t.trim()).filter(Boolean),
+    blurb:document.getElementById("sBlurb").value.trim(),
+    know:document.getElementById("sKnow").value.trim(),
+    hours:document.getElementById("sHours").value.split("\n").map(h=>h.trim()).filter(Boolean)
+  };
+  const shops=await getShops(); shops.push(shop);
+  const ok=await sSet(K_SHOPS,shops);
+  if(ok&&pendingSuggId){
+    let suggs=await getSuggs();
+    suggs=suggs.filter(x=>x.id!==pendingSuggId);
+    await sSet(K_SUGG,suggs);
+    pendingSuggId=null;
+  }
+  toast("adminToast", ok?`${shop.name} added — it's live in the student directory now.`:"Couldn't reach shared storage; the shop exists for this session only.", !ok);
+  document.getElementById("addShopForm").reset(); pickedCats.clear();
+  document.querySelectorAll(".catpick").forEach(b=>b.classList.remove("picked"));
+  populateShopSelects(); refreshAdmin(); renderShops(currentFilter);
+});
+document.getElementById("restoreDefaults").addEventListener("click",function(){confirm2(this,async()=>{
+  await sSet(K_SHOPS,DEFAULT_SHOPS);
+  toast("adminToast","Directory restored to the original list.");
+  populateShopSelects(); refreshAdmin(); renderShops(currentFilter);
+});});
+
+/* =================== INIT =================== */
+(async function init(){
+  await populateShopSelects();
+  renderShops("all");
+  refreshBoard();
+})();
+</script>
+</body>
+</html>
