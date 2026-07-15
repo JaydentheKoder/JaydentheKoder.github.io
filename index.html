@@ -251,6 +251,33 @@
   .mini.pine{color:var(--pine);border-color:var(--line)}
   .mini.pine:hover{background:var(--shea-soft)}
 
+  /* ---------- Sub-tabs (Trip Board / Pop-Up Shop) ---------- */
+  .subtabs{
+    display:flex;gap:6px;justify-content:center;flex-wrap:wrap;
+    max-width:520px;margin:0 auto 26px;padding:6px;
+    background:var(--shea-soft);border:1px solid var(--line);border-radius:999px;
+  }
+  .sub-btn{
+    flex:1 1 160px;font-family:'Archivo',sans-serif;font-size:.88rem;font-weight:600;
+    color:var(--pine);background:transparent;border:none;
+    padding:10px 16px;border-radius:999px;cursor:pointer;transition:all .18s ease;
+  }
+  .sub-btn:hover{background:rgba(20,56,42,.07)}
+  .sub-btn:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+  .sub-btn.active{background:var(--pine);color:var(--shea);box-shadow:0 2px 8px rgba(20,56,42,.22)}
+  .subpanel{display:none;animation:fadein .3s ease}
+  .subpanel.active{display:block}
+  @media (prefers-reduced-motion:reduce){.subpanel{animation:none}}
+
+  .pop-card{
+    background:var(--card);border:1.5px solid #D9A44A33;border-left:5px solid var(--amber);
+    border-radius:12px;padding:16px 18px;margin-bottom:12px;
+  }
+  .pop-card h4{font-family:'Archivo';font-size:.98rem;color:var(--pine)}
+  .pop-card .trip-meta{font-size:.8rem;color:var(--cocoa);margin:2px 0 8px}
+  .pop-card ul{list-style:none;font-size:.85rem;color:#453B2E}
+  .pop-card ul li::before{content:"— ";color:var(--amber-deep)}
+  .status.booked{background:#F0E3C8;color:var(--amber-deep)}
   .trip-card{
     background:var(--card);border:1.5px solid #2C5B8A22;border-left:5px solid #2C5B8A;
     border-radius:12px;padding:16px 18px;margin-bottom:12px;
@@ -421,7 +448,7 @@
 <header>
   <span class="eyebrow">Western Reserve Academy &middot; DEIB Office</span>
   <h1>The Crown Guide<br><em>Black hair care, handled.</em></h1>
-  <p class="sub">Vetted barbershops and braiders near campus, a style finder to figure out what you want, and a trip board so the DEIB office can get you there.</p>
+  <p class="sub">Vetted barbershops and braiders near campus, a style finder to figure out what you want, a trip board so the DEIB office can get you there — and a pop-up board for when the barber or braider comes to us.</p>
 </header>
 
 <nav aria-label="Sections">
@@ -429,7 +456,7 @@
   <button class="tab-btn" data-tab="finder">What Should I Get?</button>
   <!-- <button class="tab-btn" data-tab="pins">Style Board</button> -->
   <!-- <button class="tab-btn" data-tab="maintain">Maintain It</button> -->
-  <button class="tab-btn" data-tab="board">Trip Board</button>
+  <button class="tab-btn" data-tab="board">Trips &amp; Pop-Ups</button>
   <button class="tab-btn office" data-tab="admin">🔑 DEIB Office</button>
 </nav>
 
@@ -641,7 +668,21 @@
   </section>
 
   <!-- ================= STUDENT BOARD ================= -->
+  <!-- ================= TRIPS & POP-UPS (student) ================= -->
   <section id="board" class="panel">
+    <div class="panel-head">
+      <h2>Trips &amp; pop-ups</h2>
+      <p>Two ways to get in a chair: ride out to a shop with the DEIB van, or catch a barber or braider who comes to campus. Pick a board.</p>
+      <div class="braid"></div>
+    </div>
+
+    <div class="subtabs" role="tablist" aria-label="Trip board or pop-up shop">
+      <button class="sub-btn active" role="tab" aria-selected="true" aria-controls="subTrips" data-sub="subTrips">🚐 Trip Board</button>
+      <button class="sub-btn" role="tab" aria-selected="false" aria-controls="subPopup" data-sub="subPopup">💈 Pop-Up Shop</button>
+    </div>
+
+    <div class="subpanel active" id="subTrips" role="tabpanel">
+
     <div class="panel-head">
       <h2>Trip board</h2>
       <p>Can&rsquo;t drive? Post a notice here. The DEIB office checks the board, groups requests going to the same area, and schedules a van trip.</p>
@@ -705,6 +746,79 @@
     </div>
     <div class="refresh-row"><button class="btn ghost small" id="refreshStudent">Refresh board</button></div>
     <div class="req-list" id="studentList"></div>
+      </div><!-- /subTrips -->
+
+    <div class="subpanel" id="subPopup" role="tabpanel">
+
+    <div class="panel-head">
+      <h2>Pop-up shop</h2>
+      <p>Sometimes the chair comes to us. When the DEIB office books a barber or braider to set up on campus, it shows up here &mdash; grab a slot. No van, no drive, no ride needed.</p>
+      <div class="braid"></div>
+    </div>
+
+    <p class="notice">Same rules as the trip board: everything posted here is visible to everyone using the guide, including the DEIB office. Use your name or initials &mdash; nothing private.</p>
+
+    <div class="panel-head" style="margin-top:10px">
+      <h2 style="font-size:1.3rem">Pop-ups on the calendar</h2>
+      <p>Booked stylists coming to campus. Slots are first come, first served.</p>
+    </div>
+    <div class="req-list" id="studentPopups"></div>
+
+    <div class="panel-head" style="margin-top:44px">
+      <h2 style="font-size:1.3rem">Nothing that fits? Request a pop-up</h2>
+      <p>Tell the office what you need. When enough people want the same thing, they can book that barber or braider to come to campus.</p>
+    </div>
+
+    <form class="card-form" id="pReqForm">
+      <div class="field">
+        <label for="pfName">Name (or initials)</label>
+        <input id="pfName" type="text" maxlength="60" required placeholder="e.g., Jordan M. &rsquo;27">
+      </div>
+      <div class="field">
+        <label for="pfService">What do you need done?</label>
+        <select id="pfService" required>
+          <option value="" disabled selected>Choose a service&hellip;</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="pfShop">Stylist or shop you'd want here (optional)</label>
+        <select id="pfShop">
+          <option value="">No preference — whoever the office can get</option>
+        </select>
+        <p class="hint">Requests for the same kind of work get grouped into one pop-up.</p>
+      </div>
+      <div class="field">
+        <label for="pfWhen">When could you actually sit?</label>
+        <select id="pfWhen" required>
+          <option value="" disabled selected>Choose&hellip;</option>
+          <option>Weekday afternoons</option>
+          <option>Weekday evenings</option>
+          <option>Saturdays</option>
+          <option>Sundays</option>
+          <option>Pretty flexible — whenever it happens</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="pfNotes">Notes (optional)</label>
+        <textarea id="pfNotes" maxlength="300" placeholder="e.g., need it before the formal on the 24th; braids take me ~5 hrs so a long block helps"></textarea>
+      </div>
+      <div class="form-actions">
+        <button class="btn" type="button" id="pReqBtn">Post my pop-up request</button>
+      </div>
+    </form>
+    <div class="toast" id="popToast"></div>
+
+    <div class="panel-head" style="margin-top:44px">
+      <h2 style="font-size:1.3rem">Open pop-up requests</h2>
+      <p>See who&rsquo;s waiting &mdash; or type your name to check your own request and which pop-up you&rsquo;re booked on.</p>
+    </div>
+    <div style="max-width:420px;margin:0 auto 16px">
+      <input id="popTrackName" type="search" maxlength="60" placeholder="🔎 Find my request — type your name"
+        style="width:100%;font-family:'Archivo';font-size:.92rem;background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:12px 18px">
+    </div>
+    <div class="refresh-row"><button class="btn ghost small" id="refreshPopStudent">Refresh board</button></div>
+    <div class="req-list" id="popStudentList"></div>
+      </div><!-- /subPopup -->
   </section>
 
   <!-- ================= ADMIN ================= -->
@@ -792,6 +906,66 @@
       <div class="refresh-row"><button class="btn ghost small" id="refreshAdmin">Refresh</button></div>
       <div class="req-list" id="adminList"></div>
 
+      <!-- Pop-up shops -->
+      <div class="section-h"><h3>💈 Pop-up shops on campus</h3></div>
+      <div class="plan-summary" id="popPlanSummary" style="margin-top:0"></div>
+      <form class="card-form" id="popForm" style="max-width:800px">
+        <div class="two-col">
+          <div class="field">
+            <label for="pStylist">Barber / braider (or shop) coming</label>
+            <input id="pStylist" maxlength="60" required placeholder="e.g., Nekole — The Texture Haus">
+          </div>
+          <div class="field">
+            <label for="pShopLink">Link to a shop in the directory (optional)</label>
+            <select id="pShopLink"><option value="">Not in the directory / independent</option></select>
+          </div>
+        </div>
+        <div class="two-col">
+          <div class="field">
+            <label for="pDate">Date</label>
+            <input id="pDate" type="date" required>
+          </div>
+          <div class="field">
+            <label for="pTime">Start time</label>
+            <input id="pTime" type="time" required>
+          </div>
+        </div>
+        <div class="two-col">
+          <div class="field">
+            <label for="pEnd">End time (optional)</label>
+            <input id="pEnd" type="time">
+          </div>
+          <div class="field">
+            <label for="pSlots">Appointment slots</label>
+            <input id="pSlots" type="number" min="1" max="40" value="8" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="pPlace">Where on campus</label>
+          <input id="pPlace" maxlength="80" required placeholder="e.g., Ellsworth Hall lounge">
+        </div>
+        <div class="field">
+          <label>What are they doing? (check all that apply)</label>
+          <div class="opts" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr))">
+            <button type="button" class="opt popcatpick" data-c="cuts">Cuts &amp; Fades</button>
+            <button type="button" class="opt popcatpick" data-c="braids">Braids &amp; Twists</button>
+            <button type="button" class="opt popcatpick" data-c="locs">Locs</button>
+            <button type="button" class="opt popcatpick" data-c="natural">Natural / Silk press</button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="pNote">Note for students (optional)</label>
+          <input id="pNote" type="text" maxlength="140" placeholder="e.g., $25 cuts, cash or Venmo. Bring your own braiding hair.">
+        </div>
+        <div class="form-actions"><button class="btn" type="button" id="popBtn">Create pop-up</button></div>
+      </form>
+
+      <div class="section-h"><h3>Scheduled pop-ups</h3></div>
+      <div class="req-list" id="adminPopups"></div>
+
+      <div class="section-h"><h3>📋 Pop-up requests</h3></div>
+      <div class="req-list" id="adminPopList"></div>
+
       <!-- Shop suggestions -->
       <div class="section-h"><h3>💡 Shop suggestions from students</h3></div>
       <div class="req-list" id="suggList" style="margin-bottom:10px"></div>
@@ -857,6 +1031,7 @@
 <script>
 /* =================== KEYS =================== */
 const K_REQ="wra-hair-requests", K_SHOPS="wra-hair-shops", K_TRIPS="wra-hair-trips", K_ADMIN="wra-hair-adminkey", K_SUGG="wra-hair-suggestions";
+const K_POP="wra-hair-popups", K_PREQ="wra-hair-popup-requests";
 let mem={};            // in-memory fallback when shared storage is unavailable
 let storageOK=true;    // flips false on first failure
 let unlocked=false;    // admin session (until page reload)
@@ -1068,6 +1243,8 @@ async function getShops(){ const s=await sGet(K_SHOPS,null); return Array.isArra
 async function getReqs(){ return await sGet(K_REQ,[]); }
 async function getTrips(){ return await sGet(K_TRIPS,[]); }
 async function getSuggs(){ return await sGet(K_SUGG,[]); }
+async function getPopups(){ return await sGet(K_POP,[]); }
+async function getPopReqs(){ return await sGet(K_PREQ,[]); }
 
 function esc(s){const d=document.createElement("div");d.textContent=s||"";return d.innerHTML;}
 function mapsLink(q){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);}
@@ -1099,12 +1276,26 @@ document.querySelectorAll(".tab-btn").forEach(btn=>{
     document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
     btn.classList.add("active");
     document.getElementById(btn.dataset.tab).classList.add("active");
-    if(btn.dataset.tab==="board") refreshBoard();
+    if(btn.dataset.tab==="board"){ refreshBoard(); refreshPopupBoard(); }
     if(btn.dataset.tab==="admin") openAdminTab();
     if(btn.dataset.tab==="pins") refreshPins();
     if(btn.dataset.tab==="shops"){ closeShopDetail(); renderShops(currentFilter); }
     window.scrollTo({top:0});
   });
+});
+
+/* =================== SUB-TABS: Trip Board / Pop-Up Shop =================== */
+function showSub(id,scroll){
+  document.querySelectorAll(".sub-btn").forEach(b=>{
+    const on=b.dataset.sub===id;
+    b.classList.toggle("active",on); b.setAttribute("aria-selected",on?"true":"false");
+  });
+  document.querySelectorAll(".subpanel").forEach(p=>p.classList.toggle("active",p.id===id));
+  id==="subPopup"?refreshPopupBoard():refreshBoard();
+  if(scroll) document.querySelector(".subtabs").scrollIntoView({behavior:"smooth",block:"start"});
+}
+document.querySelectorAll(".sub-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>showSub(btn.dataset.sub,true));
 });
 
 /* =================== SHOP DIRECTORY =================== */
@@ -1235,6 +1426,7 @@ async function openShopDetail(id){
   d.querySelectorAll("[data-detailpin]").forEach(f=>f.addEventListener("click",()=>openLightbox(f.dataset.detailpin)));
   d.querySelector("#detailBack").addEventListener("click",closeShopDetail);
   d.querySelector("#detailRequest").addEventListener("click",()=>{
+    showSub("subTrips");
     closeShopDetail();
     document.querySelector('.tab-btn[data-tab="board"]').click();
     document.getElementById("fShop").value=id;
@@ -1272,6 +1464,15 @@ document.getElementById("sgBtn").addEventListener("click",async()=>{
 
 async function populateShopSelects(){
   const shops=await getShops();
+  // pop-up: preferred stylist/shop + admin's optional directory link
+  const pfShop=document.getElementById("pfShop");
+  pfShop.innerHTML=`<option value="">No preference — whoever the office can get</option>`;
+  const pShopLink=document.getElementById("pShopLink");
+  pShopLink.innerHTML=`<option value="">Not in the directory / independent</option>`;
+  shops.forEach(s=>{
+    const a=document.createElement("option"); a.value=s.id; a.textContent=`${s.name} (${s.area})`; pfShop.appendChild(a);
+    const b=document.createElement("option"); b.value=s.id; b.textContent=`${s.name} (${s.area})`; pShopLink.appendChild(b);
+  });
   const fShop=document.getElementById("fShop");
   fShop.querySelectorAll("option:not(:first-child)").forEach(o=>o.remove());
   shops.forEach(s=>{
@@ -1316,6 +1517,149 @@ async function renderServiceOptions(){
   } else { hint.style.display="none"; hint.textContent=""; }
 }
 document.getElementById("fShop").addEventListener("change",renderServiceOptions);
+
+
+/* =================== POP-UP SHOP BOARD =================== */
+function popServiceOptions(){
+  const sel=document.getElementById("pfService");
+  const prev=sel.value;
+  sel.innerHTML=`<option value="" disabled selected>Choose a service&hellip;</option>`;
+  SERVICES.forEach(v=>{ const o=document.createElement("option"); o.textContent=v.n; sel.appendChild(o); });
+  if(prev) sel.value=prev;
+}
+function popLabel(p){ return p.stylist; }
+function popStatusLabel(st){ return st==="requested"?"Waiting":st==="scheduled"?"Slot booked":"Done"; }
+function popWhen(p){
+  return fmtTripDate(p.date,p.time)+(p.end?` – ${new Date("2000-01-01T"+p.end).toLocaleTimeString(undefined,{hour:"numeric",minute:"2-digit"})}`:"");
+}
+function popCatsOf(p){ return (p.cats&&p.cats.length)?p.cats:null; }
+
+let popCache=null;
+async function refreshPopupBoard(){
+  const [preqs,shops,pops]=await Promise.all([getPopReqs(),getShops(),getPopups()]);
+  const up=pops.filter(p=>!p.completed).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+  const el=document.getElementById("studentPopups");
+  el.innerHTML=up.length?up.map(p=>{
+    const booked=preqs.filter(r=>r.popupId===p.id&&r.status!=="done");
+    const left=p.slots-booked.length;
+    const cats=popCatsOf(p);
+    const offered=cats?SERVICES.filter(s=>s.c==="any"||cats.includes(s.c)):SERVICES;
+    const svcOpts=offered.map(s=>`<option>${s.n}</option>`).join("");
+    const offerNote=cats?`They're doing ${cats.map(c=>CAT_LABEL[c]||c).join(" · ")}`:"";
+    return `<div class="pop-card">
+      <h4>💈 ${esc(popLabel(p))} — on campus</h4>
+      <div class="trip-meta">${popWhen(p)} &middot; 📍 ${esc(p.place)} &middot; ${booked.length}/${p.slots} slots taken${p.note?` &middot; ${esc(p.note)}`:""}</div>
+      ${booked.length?`<ul>${booked.map(r=>`<li>${esc(r.name)} — ${esc(r.service)}${r.pref?` (${esc(r.pref)})`:""}</li>`).join("")}</ul>`:`<ul><li>Slots open — be the first to book.</li></ul>`}
+      ${left>0?`
+        <div class="trip-actions"><button class="mini pine" data-poptoggle="${p.id}">Book a slot (${left} left)</button></div>
+        <div id="popjoin-${p.id}" style="display:none;margin-top:12px;border-top:1px solid var(--line);padding-top:12px">
+          ${offerNote?`<p class="hint" style="margin:0 0 10px">✂️ ${offerNote} — that's why the list below is trimmed.</p>`:""}
+          <div class="two-col">
+            <div class="field" style="margin-bottom:10px">
+              <label for="pn-${p.id}">Name (or initials)</label>
+              <input id="pn-${p.id}" maxlength="60" placeholder="e.g., Jordan M. &rsquo;27">
+            </div>
+            <div class="field" style="margin-bottom:10px">
+              <label for="ps-${p.id}">What are you getting?</label>
+              <select id="ps-${p.id}"><option value="" disabled selected>Choose&hellip;</option>${svcOpts}</select>
+            </div>
+          </div>
+          <div class="field" style="margin-bottom:10px">
+            <label for="pp-${p.id}">Time that works best (optional)</label>
+            <input id="pp-${p.id}" maxlength="40" placeholder="e.g., after 4, or first slot — I have practice at 6">
+          </div>
+          <button class="btn small" type="button" data-popjoin="${p.id}">Claim my slot</button>
+        </div>`
+      :`<div class="trip-actions"><span class="status booked">Fully booked — post a request below for the next pop-up</span></div>`}
+    </div>`;
+  }).join(""):`<div class="empty">No pop-ups on the calendar. Post a request below — when the office sees demand, they book someone to come to campus.</div>`;
+
+  el.querySelectorAll("[data-poptoggle]").forEach(b=>b.addEventListener("click",()=>{
+    const f=document.getElementById("popjoin-"+b.dataset.poptoggle);
+    f.style.display=f.style.display==="none"?"":"none";
+  }));
+  el.querySelectorAll("[data-popjoin]").forEach(b=>b.addEventListener("click",async()=>{
+    const pid=b.dataset.popjoin;
+    const name=document.getElementById("pn-"+pid).value.trim();
+    const service=document.getElementById("ps-"+pid).value;
+    const pref=document.getElementById("pp-"+pid).value.trim();
+    if(!name||!service){ toast("popToast","Add your name and pick a service to claim a slot.",true); return; }
+    b.disabled=true; b.textContent="Claiming…";
+    // re-read fresh data so we don't overbook the chair
+    const [freshReqs,freshPops]=await Promise.all([getPopReqs(),getPopups()]);
+    const pop=freshPops.find(x=>x.id===pid&&!x.completed);
+    if(!pop){ toast("popToast","That pop-up was just cancelled — post a request instead.",true); refreshPopupBoard(); return; }
+    const taken=freshReqs.filter(r=>r.popupId===pid&&r.status!=="done").length;
+    if(taken>=pop.slots){ toast("popToast","Sorry — the last slot was just claimed. Post a request and the office will look at another pop-up.",true); refreshPopupBoard(); return; }
+    freshReqs.push({
+      id:"p"+Date.now()+Math.random().toString(36).slice(2,6),
+      name, service, pref,
+      shopId:pop.shopId||"",
+      timing:"Booked a pop-up slot",
+      notes:"", status:"scheduled", popupId:pid, createdAt:Date.now()
+    });
+    const ok=await sSet(K_PREQ,freshReqs);
+    toast("popToast", ok?"You're booked! Your slot shows on the list — the office will see you're coming."
+      :"Couldn't reach shared storage, so your slot may not be saved for the office. Try again inside Claude.", !ok);
+    refreshPopupBoard();
+  }));
+
+  popCache={preqs,shops,pops};
+  renderPopStudentList();
+}
+function popShopName(shops,id){ const s=shops.find(x=>x.id===id); return s?`${s.name} (${s.area})`:"No stylist preference"; }
+function renderPopStudentList(){
+  if(!popCache) return;
+  const {preqs,shops,pops}=popCache;
+  const el=document.getElementById("popStudentList");
+  const q=document.getElementById("popTrackName").value.trim().toLowerCase();
+  let open=preqs.filter(r=>r.status!=="done").sort((a,b)=>b.createdAt-a.createdAt);
+  if(q) open=open.filter(r=>r.name.toLowerCase().includes(q));
+  if(!open.length){
+    el.innerHTML=q?`<div class="empty">No open pop-up request under "${esc(q)}". Check the spelling you posted with — or it may already be marked done.</div>`
+      :`<div class="empty">No open pop-up requests yet. Be the first — post above and the DEIB office will see it.</div>`;
+    return;
+  }
+  el.innerHTML=open.map(r=>{
+    const pop=r.popupId?pops.find(p=>p.id===r.popupId&&!p.completed):null;
+    return `<div class="req-item">
+      <div class="req-main">
+        <div class="who">${esc(r.name)}</div>
+        <div class="what">${esc(r.service)} &middot; ${popShopName(shops,r.shopId)}</div>
+        <div class="when">${esc(r.timing)} &middot; posted ${fmtDate(r.createdAt)}${r.notes?" &middot; “"+esc(r.notes)+"”":""}</div>
+        ${pop?`<div class="when" style="color:var(--amber-deep);font-weight:600">💈 Booked with ${esc(popLabel(pop))} — ${popWhen(pop)} · ${esc(pop.place)}${r.pref?" · asked for "+esc(r.pref):""}</div>`:""}
+      </div>
+      <span class="status ${r.status==="scheduled"?"booked":r.status}">${popStatusLabel(r.status)}</span>
+    </div>`;
+  }).join("");
+}
+document.getElementById("popTrackName").addEventListener("input",renderPopStudentList);
+document.getElementById("refreshPopStudent").addEventListener("click",refreshPopupBoard);
+
+document.getElementById("pReqBtn").addEventListener("click",async()=>{
+  const name=document.getElementById("pfName").value.trim();
+  const service=document.getElementById("pfService").value;
+  const when=document.getElementById("pfWhen").value;
+  if(!name||!service||!when){ toast("popToast","Fill in your name, the service, and when you could sit.",true); return; }
+  const btn=document.getElementById("pReqBtn");
+  btn.disabled=true; btn.textContent="Posting…";
+  const req={
+    id:"p"+Date.now()+Math.random().toString(36).slice(2,6),
+    name, service, pref:"",
+    shopId:document.getElementById("pfShop").value,
+    timing:when,
+    notes:document.getElementById("pfNotes").value.trim(),
+    status:"requested", popupId:"", createdAt:Date.now()
+  };
+  const list=await getPopReqs(); list.push(req);
+  const ok=await sSet(K_PREQ,list);
+  toast("popToast", ok?"Posted! The DEIB office will see it — if enough people want the same thing, they'll book a pop-up."
+    :"Saved for this session only — shared storage isn't available here, so the office may not see it. Try again inside Claude, or email the office directly.", !ok);
+  document.getElementById("pReqForm").reset();
+  popServiceOptions();
+  btn.disabled=false; btn.textContent="Post my pop-up request";
+  refreshPopupBoard();
+});
 
 /* =================== STYLE FINDER =================== */
 const answers={goal:null,time:null,last:null};
@@ -1364,6 +1708,7 @@ document.getElementById("finderGo").addEventListener("click",async()=>{
     window.scrollTo({top:0,behavior:"smooth"});
   });
   document.getElementById("finderToBoard").addEventListener("click",()=>{
+    showSub("subTrips");
     document.querySelector('.tab-btn[data-tab="board"]').click();
   });
   box.querySelectorAll("a[data-shop]").forEach(a=>{
@@ -1859,10 +2204,13 @@ const AREA_GROUP={
 };
 async function refreshAdmin(){
   if(!unlocked) return;
-  const [reqs,shops,trips,suggs]=await Promise.all([getReqs(),getShops(),getTrips(),getSuggs()]);
+  const [reqs,shops,trips,suggs,pops,preqs]=await Promise.all([getReqs(),getShops(),getTrips(),getSuggs(),getPopups(),getPopReqs()]);
   renderPlanSummary(reqs,shops);
   renderAdminTrips(reqs,shops,trips);
   renderAdminList(reqs,shops,trips);
+  renderPopPlanSummary(preqs);
+  renderAdminPopups(preqs,shops,pops);
+  renderAdminPopList(preqs,shops,pops);
   renderSuggs(suggs);
   renderShopAdmin(shops);
 }
@@ -2078,6 +2426,199 @@ function renderAdminList(reqs,shops,trips){
   })));
 }
 
+
+/* --- Pop-up shops (admin) --- */
+const popPickedCats=new Set();
+document.querySelectorAll(".popcatpick").forEach(b=>b.addEventListener("click",()=>{
+  b.classList.toggle("picked");
+  b.classList.contains("picked")?popPickedCats.add(b.dataset.c):popPickedCats.delete(b.dataset.c);
+}));
+
+function renderPopPlanSummary(preqs){
+  const el=document.getElementById("popPlanSummary");
+  const open=preqs.filter(r=>r.status==="requested");
+  if(!open.length){el.innerHTML=`<h3>Pop-up planner</h3><p style="font-size:.88rem">No one is waiting on a pop-up right now.</p>`;return;}
+  const counts={};
+  open.forEach(r=>{
+    const svc=SERVICES.find(x=>x.n===r.service);
+    const key=svc&&svc.c!=="any"?(CAT_LABEL[svc.c]||svc.c):"Not sure yet — needs help deciding";
+    counts[key]=(counts[key]||0)+1;
+  });
+  el.innerHTML=`<h3>Pop-up planner — ${open.length} student${open.length>1?"s":""} waiting</h3>`+
+    Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([k,n])=>
+      `<div class="plan-row"><span>${esc(k)}</span><b>${n} student${n>1?"s":""}</b></div>`).join("")+
+    `<p style="font-size:.78rem;margin-top:12px;opacity:.85">Tip: a barber can do 6–8 cuts in an afternoon; a braider realistically does 1–2 full styles a day, so book braid pop-ups for a Saturday and cap the slots honestly.</p>`;
+}
+
+document.getElementById("popBtn").addEventListener("click",async()=>{
+  const reqd=["pStylist","pDate","pTime","pPlace"];
+  if(reqd.some(id=>!document.getElementById(id).value.trim())){
+    toast("adminToast","Fill in who's coming, the date, the start time, and where on campus.",true); return;
+  }
+  if(!popPickedCats.size){ toast("adminToast","Pick at least one thing the pop-up is doing.",true); return; }
+  const pop={
+    id:"pu"+Date.now()+Math.random().toString(36).slice(2,6),
+    stylist:document.getElementById("pStylist").value.trim(),
+    shopId:document.getElementById("pShopLink").value,
+    date:document.getElementById("pDate").value,
+    time:document.getElementById("pTime").value,
+    end:document.getElementById("pEnd").value,
+    place:document.getElementById("pPlace").value.trim(),
+    slots:parseInt(document.getElementById("pSlots").value,10)||8,
+    cats:[...popPickedCats],
+    note:document.getElementById("pNote").value.trim(),
+    completed:false, createdAt:Date.now()
+  };
+  const pops=await getPopups(); pops.push(pop);
+  const ok=await sSet(K_POP,pops);
+  toast("adminToast", ok?"Pop-up created — students can book slots now. Assign waiting students below."
+    :"Couldn't save to shared storage; the pop-up exists for this session only.", !ok);
+  document.getElementById("popForm").reset(); document.getElementById("pSlots").value=8;
+  popPickedCats.clear();
+  document.querySelectorAll(".popcatpick").forEach(b=>b.classList.remove("picked"));
+  refreshAdmin();
+});
+
+function renderAdminPopups(preqs,shops,pops){
+  const el=document.getElementById("adminPopups");
+  const active=pops.filter(p=>!p.completed).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+  if(!active.length){el.innerHTML=`<div class="empty">No pop-ups scheduled. Book one above, then assign waiting students to it.</div>`;return;}
+  el.innerHTML=active.map(p=>{
+    const booked=preqs.filter(r=>r.popupId===p.id&&r.status!=="done");
+    return `<div class="pop-card">
+      <h4>💈 ${esc(popLabel(p))}</h4>
+      <div class="trip-meta">${popWhen(p)} &middot; 📍 ${esc(p.place)} &middot; ${booked.length}/${p.slots} slots &middot; ${(p.cats||[]).map(c=>CAT_LABEL[c]||c).join(" · ")}${p.note?` &middot; ${esc(p.note)}`:""}</div>
+      ${booked.length?`<ul>${booked.map(r=>`<li>${esc(r.name)} — ${esc(r.service)}${r.pref?` (asked for ${esc(r.pref)})`:""}</li>`).join("")}</ul>`:`<ul><li>No one booked yet.</li></ul>`}
+      <div class="trip-actions">
+        <button class="mini pine" data-popemail="${p.id}">📧 Email announcement</button>
+        <button class="mini pine" data-popcomplete="${p.id}">Mark pop-up complete</button>
+        <button class="mini" data-popdel="${p.id}">Cancel pop-up</button>
+      </div>
+      <div class="email-box" id="popemailbox-${p.id}" style="display:none">
+        <label>Subject</label>
+        <input readonly id="popemailsubj-${p.id}">
+        <label>Body</label>
+        <textarea readonly id="popemailbody-${p.id}"></textarea>
+        <div class="trip-actions">
+          <button class="btn small" type="button" data-popcopyemail="${p.id}">Copy email</button>
+        </div>
+      </div>
+    </div>`;
+  }).join("");
+
+  el.querySelectorAll("[data-popemail]").forEach(b=>b.addEventListener("click",async()=>{
+    const box=document.getElementById("popemailbox-"+b.dataset.popemail);
+    if(box.style.display!=="none"){ box.style.display="none"; return; }
+    const [preqs2,shops2,pops2]=await Promise.all([getPopReqs(),getShops(),getPopups()]);
+    const p=pops2.find(x=>x.id===b.dataset.popemail); if(!p)return;
+    const booked=preqs2.filter(r=>r.popupId===p.id&&r.status!=="done");
+    const left=p.slots-booked.length;
+    const shop=shops2.find(x=>x.id===p.shopId);
+    document.getElementById("popemailsubj-"+p.id).value=`Pop-up shop on campus: ${p.stylist} — ${fmtTripDate(p.date,p.time)}`;
+    document.getElementById("popemailbody-"+p.id).value=
+`Hi everyone,
+
+No van needed this time — the DEIB office is bringing the chair to campus:
+
+💈 Who: ${p.stylist}${shop?` (${shop.name}, ${shop.area})`:""}
+✂️ Doing: ${(p.cats||[]).map(c=>CAT_LABEL[c]||c).join(", ")}
+🗓 When: ${popWhen(p)}
+📍 Where: ${p.place}
+🪑 Slots: ${left>0?left+" of "+p.slots+" still open":"currently full — post a request for the next pop-up"}
+${p.note?"📝 Note: "+p.note+"\n":""}${shop&&shop.price?"💵 Typical prices: "+shop.price+"\n":""}
+To claim a slot, open the Crown Guide, go to the Pop-Up Shop tab, and tap "Book a slot." First come, first served. If your style needs braiding hair or a deposit, handle that ahead of time.
+
+Questions? Stop by the DEIB office.
+
+— WRA DEIB Office`;
+    box.style.display="";
+  }));
+  el.querySelectorAll("[data-popcopyemail]").forEach(b=>b.addEventListener("click",async()=>{
+    const pid=b.dataset.popcopyemail;
+    const text="Subject: "+document.getElementById("popemailsubj-"+pid).value+"\n\n"+document.getElementById("popemailbody-"+pid).value;
+    let copied=false;
+    try{ await navigator.clipboard.writeText(text); copied=true; }
+    catch(e){
+      const ta=document.getElementById("popemailbody-"+pid);
+      ta.focus(); ta.select();
+      try{ copied=document.execCommand("copy"); }catch(e2){}
+    }
+    toast("adminToast", copied?"Email copied — paste it into Outlook/Gmail and send to your student list."
+      :"Couldn't auto-copy in this browser — the text is selected below, press Ctrl/Cmd+C.", !copied);
+  }));
+  el.querySelectorAll("[data-popcomplete]").forEach(b=>b.addEventListener("click",async()=>{
+    const [preqs,pops]=await Promise.all([getPopReqs(),getPopups()]);
+    const p=pops.find(x=>x.id===b.dataset.popcomplete); if(p)p.completed=true;
+    preqs.forEach(r=>{if(r.popupId===b.dataset.popcomplete&&r.status==="scheduled")r.status="done";});
+    await sSet(K_POP,pops); await sSet(K_PREQ,preqs);
+    toast("adminToast","Pop-up completed — everyone booked on it was marked done.");
+    refreshAdmin();
+  }));
+  el.querySelectorAll("[data-popdel]").forEach(b=>b.addEventListener("click",()=>confirm2(b,async()=>{
+    let [preqs,pops]=await Promise.all([getPopReqs(),getPopups()]);
+    pops=pops.filter(x=>x.id!==b.dataset.popdel);
+    preqs.forEach(r=>{if(r.popupId===b.dataset.popdel){r.popupId="";if(r.status==="scheduled")r.status="requested";}});
+    await sSet(K_POP,pops); await sSet(K_PREQ,preqs);
+    toast("adminToast","Pop-up cancelled — everyone booked on it went back to Waiting.");
+    refreshAdmin();
+  })));
+}
+
+function renderAdminPopList(preqs,shops,pops){
+  const el=document.getElementById("adminPopList");
+  const active=pops.filter(p=>!p.completed);
+  const sorted=preqs.slice().sort((a,b)=>{
+    const rank={requested:0,scheduled:1,done:2};
+    return rank[a.status]-rank[b.status]||b.createdAt-a.createdAt;
+  });
+  if(!sorted.length){el.innerHTML=`<div class="empty">No pop-up requests on the board.</div>`;return;}
+  el.innerHTML=sorted.map(r=>{
+    const opts=`<option value="">— assign to pop-up —</option>`+active.map(p=>{
+      const label=popLabel(p)+" · "+fmtTripDate(p.date,p.time);
+      return `<option value="${p.id}" ${r.popupId===p.id?"selected":""}>${esc(label)}</option>`;
+    }).join("");
+    return `<div class="req-item">
+      <div class="req-main">
+        <div class="who">${esc(r.name)} <span class="status ${r.status==="scheduled"?"booked":r.status}" style="margin-left:6px">${popStatusLabel(r.status)}</span></div>
+        <div class="what">${esc(r.service)} &middot; ${popShopName(shops,r.shopId)}</div>
+        <div class="when">${esc(r.timing)} &middot; posted ${fmtDate(r.createdAt)}${r.pref?" &middot; wants "+esc(r.pref):""}${r.notes?" &middot; “"+esc(r.notes)+"”":""}</div>
+      </div>
+      <div class="req-admin">
+        <select data-popassign="${r.id}" aria-label="Assign to pop-up">${opts}</select>
+        ${r.status!=="done"?`<button class="mini pine" data-popdone="${r.id}">Mark done</button>`:""}
+        <button class="mini" data-popreqdel="${r.id}">Remove</button>
+      </div>
+    </div>`;
+  }).join("");
+  el.querySelectorAll("[data-popassign]").forEach(sel=>sel.addEventListener("change",async()=>{
+    const preqs=await getPopReqs();
+    const item=preqs.find(x=>x.id===sel.dataset.popassign);
+    if(!item) return;
+    if(sel.value){
+      const pops=await getPopups();
+      const p=pops.find(x=>x.id===sel.value);
+      const taken=preqs.filter(r=>r.popupId===sel.value&&r.status!=="done"&&r.id!==item.id).length;
+      if(p&&taken>=p.slots){ toast("adminToast",`${p.stylist} is already at ${p.slots}/${p.slots} slots — add slots or pick another pop-up.`,true); refreshAdmin(); return; }
+    }
+    item.popupId=sel.value;
+    item.status=sel.value?"scheduled":(item.status==="scheduled"?"requested":item.status);
+    await sSet(K_PREQ,preqs);
+    refreshAdmin();
+  }));
+  el.querySelectorAll("[data-popdone]").forEach(b=>b.addEventListener("click",async()=>{
+    const preqs=await getPopReqs();
+    const item=preqs.find(x=>x.id===b.dataset.popdone);
+    if(item){item.status="done";await sSet(K_PREQ,preqs);refreshAdmin();}
+  }));
+  el.querySelectorAll("[data-popreqdel]").forEach(b=>b.addEventListener("click",()=>confirm2(b,async()=>{
+    let preqs=await getPopReqs();
+    preqs=preqs.filter(x=>x.id!==b.dataset.popreqdel);
+    await sSet(K_PREQ,preqs);
+    toast("adminToast","Pop-up request removed from the board.");
+    refreshAdmin();
+  })));
+}
+
 /* --- Shop management --- */
 let pendingSuggId=null;
 function renderShopAdmin(shops){
@@ -2146,7 +2687,9 @@ document.getElementById("restoreDefaults").addEventListener("click",function(){c
 (async function init(){
   await populateShopSelects();
   renderShops("all");
+  popServiceOptions();
   refreshBoard();
+  refreshPopupBoard();
 })();
 </script>
 </body>
